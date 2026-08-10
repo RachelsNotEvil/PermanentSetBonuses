@@ -388,6 +388,10 @@ namespace PermanentSetBonuses.Content
 			//SetStaticDefaults();
 			setXP = new int[System.Enum.GetNames(typeof(ArmorSet)).Length];
 			activeSets = new bool[setXP.Length];
+			if (armorData == null)
+			{
+				armorData = InitialArmorData();
+			}
 			if (tag.ContainsKey("PermanentSetBonuses.activeSets"))
 			{
 				//Loop prevents out-of-bounds errors when loading outdated save data
