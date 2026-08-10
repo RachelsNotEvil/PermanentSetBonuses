@@ -1,0 +1,9 @@
+#Zip files
+*.zip
+
+#OS General Files
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+[Dd]esktop.ini

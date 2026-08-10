@@ -1,0 +1,9 @@
+Permanent Set Bonuses adds reproductions of each armor set bonus as permanent buffs earnable by sustained use of that armor set.
+
+Enemies give experience points when you are wearing an armor set, and when a particular set has accumulated enough experience, a copy of its set bonus will be permanently added to the character. If you continue wearing that armor set, you will not gain any more experience, but you will get the benefit of both the permanent copy bonus and the original set bonus while wearing it.
+
+This is very powerful! Thus, I have attempted to tune the experience amounts to be longer than your typical progression-rush player would want to use that armor set. Players who want to be overpowered but have to work for it, or players who just want the vanilla game to be easier, should find something to like here.
+
+Extensive options allow you to enable or disable which set bonuses can become permanent, including options to lump similar set bonuses together as a single bonus so you can't get essentially the same bonus several times (e.g. "basic wood armor" "any tier 1 metal"). You can also adjust the experience requirements for each bonus individually. If you set the experience requirement to zero for a set, merely equipping that set will grant its permanent bonus.
+
+Note: this is late alpha version. Some features are not yet implemented, and the mod is not tested in multiplayer.
