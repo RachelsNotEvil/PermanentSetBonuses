@@ -10,18 +10,19 @@ namespace PermanentSetBonuses.Content
 {
 	public enum ArmorSet
 	{
-		Wood = 0,
-		BorealWood = 1,
-		PalmWood = 2,
-		RichMahogany = 3,
-		Copper = 4,
-		Tin = 5,
-		Iron = 6,
-		Lead = 7,
-		Ebonwood = 8,
-		Shadewood = 9,
-		Silver = 10,
-		Tungsten = 11
+		Wood,
+		BorealWood,
+		PalmWood,
+		RichMahogany,
+		Copper,
+		Tin,
+		Iron,
+		Lead,
+		Ebonwood,
+		Shadewood,
+		Silver,
+		Tungsten,
+		Gold
 	}
 
 	public struct ArmorSetParameters
@@ -81,7 +82,8 @@ namespace PermanentSetBonuses.Content
 				{ArmorSet.Ebonwood, new ArmorSetParameters { validHelmets = new int[] {ItemID.EbonwoodHelmet}, validChests = new int[] {ItemID.EbonwoodBreastplate}, validGreaves = new int[] {ItemID.EbonwoodGreaves}, maxXP = 700, currentXP = 0, textR = 153, textG = 137, textB = 165, bonusWeapons = new int[] {ItemID.EbonwoodBow, ItemID.EbonwoodHammer, ItemID.EbonwoodSword, ItemID.WoodYoyo}, enabled = true}},
 				{ArmorSet.Shadewood, new ArmorSetParameters { validHelmets = new int[] {ItemID.ShadewoodHelmet}, validChests = new int[] {ItemID.ShadewoodBreastplate}, validGreaves = new int[] {ItemID.ShadewoodGreaves}, maxXP = 700, currentXP = 0, textR = 117, textG = 134, textB = 149, bonusWeapons = new int[] {ItemID.ShadewoodBow, ItemID.ShadewoodHammer, ItemID.ShadewoodSword, ItemID.WoodYoyo}, enabled = true}},
 				{ArmorSet.Silver, new ArmorSetParameters { validHelmets = new int[] {ItemID.SilverHelmet}, validChests = new int[] {ItemID.SilverChainmail}, validGreaves = new int[] {ItemID.SilverGreaves}, maxXP = 1400, currentXP = 0, textR = 171, textG = 182, textB = 183, bonusWeapons = new int[] {ItemID.SilverAxe, ItemID.SilverPickaxe, ItemID.SilverHammer, ItemID.SilverBow, ItemID.SilverShortsword, ItemID.SilverBroadsword, ItemID.SapphireStaff}, enabled = true}},
-				{ArmorSet.Tungsten, new ArmorSetParameters { validHelmets = new int[] {ItemID.TungstenHelmet}, validChests = new int[] {ItemID.TungstenChainmail}, validGreaves = new int[] {ItemID.TungstenGreaves}, maxXP = 1500, currentXP = 0, textR = 202, textG = 233, textB = 207, bonusWeapons = new int[] {ItemID.TungstenAxe, ItemID.TungstenPickaxe, ItemID.TungstenHammer, ItemID.TungstenBow, ItemID.TungstenShortsword, ItemID.TungstenBroadsword, ItemID.EmeraldStaff}, enabled = true}}
+				{ArmorSet.Tungsten, new ArmorSetParameters { validHelmets = new int[] {ItemID.TungstenHelmet}, validChests = new int[] {ItemID.TungstenChainmail}, validGreaves = new int[] {ItemID.TungstenGreaves}, maxXP = 1500, currentXP = 0, textR = 202, textG = 233, textB = 207, bonusWeapons = new int[] {ItemID.TungstenAxe, ItemID.TungstenPickaxe, ItemID.TungstenHammer, ItemID.TungstenBow, ItemID.TungstenShortsword, ItemID.TungstenBroadsword, ItemID.EmeraldStaff}, enabled = true}},
+				{ArmorSet.Gold, new ArmorSetParameters { validHelmets = new int[] {ItemID.GoldHelmet, ItemID.AncientGoldHelmet}, validChests = new int[] {ItemID.GoldChainmail}, validGreaves = new int[] {ItemID.GoldGreaves}, maxXP = 1800, currentXP = 0, textR = 255, textG = 249, textB = 183, bonusWeapons = new int[] {ItemID.GoldAxe, ItemID.GoldPickaxe, ItemID.GoldHammer, ItemID.GoldBow, ItemID.GoldShortsword, ItemID.GoldBroadsword, ItemID.FlinxStaff, ItemID.RubyStaff}, enabled = true}}
 			};
 		}
 
@@ -314,6 +316,7 @@ namespace PermanentSetBonuses.Content
 				case ArmorSet.Lead:
 				case ArmorSet.Silver:
 				case ArmorSet.Tungsten:
+				case ArmorSet.Gold:
 					Main.LocalPlayer.statDefense += 3;
 					break;
 			}
