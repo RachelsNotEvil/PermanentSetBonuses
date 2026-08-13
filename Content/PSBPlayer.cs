@@ -321,6 +321,9 @@ namespace PermanentSetBonuses.Content
 				case ArmorSet.Gold:
 					Main.LocalPlayer.statDefense += 3;
 					break;
+				case ArmorSet.Platinum:
+					Main.LocalPlayer.statDefense += 4;
+					break;
 			}
 		}//end ApplyBuff
 
