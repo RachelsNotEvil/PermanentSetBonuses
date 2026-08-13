@@ -1,9 +1,9 @@
-Keybinds.CheckSetXP.DisplayName: Check Set X P
+Keybinds.CheckSetXP.DisplayName: Check Set XP
 
 Configs: {
 	ArmorSetConfig: {
 		DisplayName: Armor Set Config
-		Headers.WoodArmor: Wood Armor Header
+		Headers.WoodArmor: Wood Armor Sets
 
 		EnableWood: {
 			Label: Enable Wood Armor
