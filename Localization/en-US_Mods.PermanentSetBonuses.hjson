@@ -1,1 +1,22 @@
 Keybinds.CheckSetXP.DisplayName: Check Set X P
+
+Configs: {
+	ArmorSetConfig: {
+		DisplayName: Armor Set Config
+		Headers.WoodArmor: Wood Armor Header
+
+		EnableWood: {
+			Label: Enable Wood Armor
+			Tooltip: ""
+		}
+
+		WoodEXP: {
+			Label: Wood EXP Required
+			Tooltip:
+				'''
+				Amount of experience required to master the Wood Armor set.
+				Default 500.
+				'''
+		}
+	}
+}

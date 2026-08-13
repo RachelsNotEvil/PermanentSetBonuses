@@ -5,6 +5,7 @@ using Terraria.ModLoader.IO;
 using Terraria.GameInput;
 using PermanentSetBonuses.IO;
 using System.Collections.Generic;
+using PermanentSetBonuses.Config;
 
 namespace PermanentSetBonuses.Content
 {
@@ -70,7 +71,7 @@ namespace PermanentSetBonuses.Content
 		{
 			return new Dictionary<ArmorSet, ArmorSetParameters>()
 			{
-				{ArmorSet.Wood, new ArmorSetParameters { validHelmets = new int[] {ItemID.WoodHelmet}, validChests = new int[] {ItemID.WoodBreastplate}, validGreaves = new int[] {ItemID.WoodGreaves}, maxXP = 500, textR = 151, textG = 107, textB = 75, bonusWeapons = new int[] {ItemID.WoodenSword, ItemID.WoodenBow, ItemID.WoodenHammer, ItemID.WoodYoyo}, enabled = true}},
+				{ArmorSet.Wood, new ArmorSetParameters { validHelmets = new int[] {ItemID.WoodHelmet}, validChests = new int[] {ItemID.WoodBreastplate}, validGreaves = new int[] {ItemID.WoodGreaves}, maxXP = ModContent.GetInstance<ArmorSetConfig>().WoodEXP, textR = 151, textG = 107, textB = 75, bonusWeapons = new int[] {ItemID.WoodenSword, ItemID.WoodenBow, ItemID.WoodenHammer, ItemID.WoodYoyo}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnableWood}},
 				{ArmorSet.BorealWood, new ArmorSetParameters { validHelmets = new int[] {ItemID.BorealWoodHelmet}, validChests = new int[] {ItemID.BorealWoodBreastplate}, validGreaves = new int[] {ItemID.BorealWoodGreaves}, maxXP = 550, textR = 107, textG = 86, textB = 71, bonusWeapons = new int[] {ItemID.BorealWoodSword, ItemID.BorealWoodBow, ItemID.BorealWoodHammer, ItemID.WoodYoyo}, enabled = true}},
 				{ArmorSet.PalmWood, new ArmorSetParameters { validHelmets = new int[] {ItemID.PalmWoodHelmet}, validChests = new int[] {ItemID.PalmWoodBreastplate}, validGreaves = new int[] {ItemID.PalmWoodGreaves}, maxXP = 550, textR = 182, textG = 141, textB = 86, bonusWeapons = new int[] {ItemID.PalmWoodBow, ItemID.PalmWoodSword, ItemID.PalmWoodHammer, ItemID.WoodYoyo}, enabled = true}},
 				{ArmorSet.RichMahogany, new ArmorSetParameters { validHelmets = new int[] {ItemID.RichMahoganyHelmet}, validChests = new int[] {ItemID.RichMahoganyBreastplate}, validGreaves = new int[] {ItemID.RichMahoganyGreaves}, maxXP = 575, textR = 163, textG = 99, textB = 104, bonusWeapons = new int[] {ItemID.RichMahoganyBow, ItemID.RichMahoganySword, ItemID.RichMahoganyHammer, ItemID.WoodYoyo}, enabled = true}},
@@ -409,6 +410,7 @@ namespace PermanentSetBonuses.Content
 			{
 				if (activeSets[i])
 				{
+					//If the set was previously mastered, master it again regardless of changes to exp requirements
 					setXP[i] = armorData[(ArmorSet)i].maxXP;
 				} else
 				{
