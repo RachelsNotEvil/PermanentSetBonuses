@@ -118,8 +118,14 @@ namespace PermanentSetBonuses.Content
 				}
 			}
 
-			if (armorSet != null && armorData[armorSet].enabled)
+			if (armorSet != null)
 			{
+				//This whole block of code right here is a good argument for switching from null
+				//to a "None" value.
+				if (!armorData[(ArmorSet)armorSet].enabled)
+				{
+					return;
+				}
 				if (setXP[(int)armorSet] < maxXP)
 				{
 					setXP[(int)armorSet] += expAward;
