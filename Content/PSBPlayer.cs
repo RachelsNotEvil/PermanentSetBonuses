@@ -118,7 +118,7 @@ namespace PermanentSetBonuses.Content
 				}
 			}
 
-			if (armorSet != null)
+			if (armorSet != null && armorData[armorSet].enabled)
 			{
 				if (setXP[(int)armorSet] < maxXP)
 				{
