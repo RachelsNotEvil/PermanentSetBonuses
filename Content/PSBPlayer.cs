@@ -23,7 +23,8 @@ namespace PermanentSetBonuses.Content
 		Shadewood,
 		Silver,
 		Tungsten,
-		Gold
+		Gold,
+		Platinum
 	}
 
 	public struct ArmorSetParameters
@@ -83,7 +84,8 @@ namespace PermanentSetBonuses.Content
 				{ArmorSet.Shadewood, new ArmorSetParameters { validHelmets = new int[] {ItemID.ShadewoodHelmet}, validChests = new int[] {ItemID.ShadewoodBreastplate}, validGreaves = new int[] {ItemID.ShadewoodGreaves}, maxXP = 700, textR = 117, textG = 134, textB = 149, bonusWeapons = new int[] {ItemID.ShadewoodBow, ItemID.ShadewoodHammer, ItemID.ShadewoodSword, ItemID.WoodYoyo}, enabled = true}},
 				{ArmorSet.Silver, new ArmorSetParameters { validHelmets = new int[] {ItemID.SilverHelmet}, validChests = new int[] {ItemID.SilverChainmail}, validGreaves = new int[] {ItemID.SilverGreaves}, maxXP = 1400, textR = 171, textG = 182, textB = 183, bonusWeapons = new int[] {ItemID.SilverAxe, ItemID.SilverPickaxe, ItemID.SilverHammer, ItemID.SilverBow, ItemID.SilverShortsword, ItemID.SilverBroadsword, ItemID.SapphireStaff}, enabled = true}},
 				{ArmorSet.Tungsten, new ArmorSetParameters { validHelmets = new int[] {ItemID.TungstenHelmet}, validChests = new int[] {ItemID.TungstenChainmail}, validGreaves = new int[] {ItemID.TungstenGreaves}, maxXP = 1500, textR = 202, textG = 233, textB = 207, bonusWeapons = new int[] {ItemID.TungstenAxe, ItemID.TungstenPickaxe, ItemID.TungstenHammer, ItemID.TungstenBow, ItemID.TungstenShortsword, ItemID.TungstenBroadsword, ItemID.EmeraldStaff}, enabled = true}},
-				{ArmorSet.Gold, new ArmorSetParameters { validHelmets = new int[] {ItemID.GoldHelmet, ItemID.AncientGoldHelmet}, validChests = new int[] {ItemID.GoldChainmail}, validGreaves = new int[] {ItemID.GoldGreaves}, maxXP = 1800, textR = 255, textG = 249, textB = 183, bonusWeapons = new int[] {ItemID.GoldAxe, ItemID.GoldPickaxe, ItemID.GoldHammer, ItemID.GoldBow, ItemID.GoldShortsword, ItemID.GoldBroadsword, ItemID.FlinxStaff, ItemID.RubyStaff}, enabled = true}}
+				{ArmorSet.Gold, new ArmorSetParameters { validHelmets = new int[] {ItemID.GoldHelmet, ItemID.AncientGoldHelmet}, validChests = new int[] {ItemID.GoldChainmail}, validGreaves = new int[] {ItemID.GoldGreaves}, maxXP = 1800, textR = 255, textG = 249, textB = 183, bonusWeapons = new int[] {ItemID.GoldAxe, ItemID.GoldPickaxe, ItemID.GoldHammer, ItemID.GoldBow, ItemID.GoldShortsword, ItemID.GoldBroadsword, ItemID.FlinxStaff, ItemID.RubyStaff}, enabled = true}},
+				{ArmorSet.Platinum, new ArmorSetParameters { validHelmets = new int[] {ItemID.PlatinumHelmet}, validChests = new int[] {PlatinumChainmail}, validGreaves = new int[] {PlatinumGreaves}, maxXP = 2400, textR = 246, textG = 216, textB = 235, bonusWeapons = new int[] {ItemID.PlatinumAxe, ItemID.PlatinumPickaxe, ItemID.PlatinumHammer, ItemID.PlatinumBow, ItemID.PlatinumShortsword, ItemID.PlatinumBroadsword, ItemID.FlinxStaff, ItemID.DiamondStaff}, enabled = true}}
 			};
 		}
 
