@@ -4,18 +4,18 @@ A Terraria mod that allows the user to obtain a permanent copy of each armor set
 ## Warning: This mod is not yet tested in multiplayer! User feedback on whether it works in multiplayer would be greatly appreciated.
 
 ### The current version of this mod supports the following armor sets:
-Wood, Palm Wood, Boreal Wood, Rich Mahogany, Ebonwood, Shadewood, Copper, Tin, Iron, Lead, Silver, Tungsten
+Wood, Palm Wood, Boreal Wood, Rich Mahogany, Ebonwood, Shadewood, Copper, Tin, Iron, Lead, Silver, Tungsten, Gold, Platinum
 
-How to gain the permanent set bonus:
+### How to gain the permanent set bonus:
 Each armor set has an experience amount needed for mastery. Using a special hotkey (default V), you can check the current and needed experience of the armor set you have equipped. Killing enemies with an armor set equipped will add experience to it (critters and NPCs will not give experience). You can get a 10% bonus to experience by also using a weapon associated with the armor set, usually something that is crafted from the same material. For example, the weapons that grant bonus experience for copper armor are copper shortsword, copper broadsword, copper pickaxe, copper axe, copper hammer, copper bow, and amethyst staff. The bonus experience increases to 25% in hardmode.
 
-Goals for this mod to be considered 1.0:
+### Goals for this mod to be considered 1.0:
 •Support for every vanilla armor set
 •Config options that allow users to enable/disable each armor set individually, and to adjust the amount of experience an armor set requires, with 0 allowing you to obtain the bonus as soon as you equip the set for the first time.
 •Some minor optimization, eliminating waste that resulted from previous refactors.
 •Further config options that allow users to combine very similar armor sets to only provide 1 permanent bonus, such as all of the basic woods.
 
-Stretch goals (in no particular order):
+### Stretch goals (in no particular order):
 •Support for popular mods like Calamity??
 •A wiki that lists each armor set, its default experience requirement, and its bonus weapons, as well as providing some insight into the mod's underlying mechanics (e.g. bonus weapons are checked similarly to Staff of Regrowth).
 •More advanced UI that allows users to check all available set bonuses, not just what is currently equipped.
