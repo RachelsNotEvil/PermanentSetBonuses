@@ -138,5 +138,31 @@ namespace PermanentSetBonuses.Config
 		[DefaultValue(1250)]
 		[ReloadRequired]
 		public int LeadEXP;
+
+		[Label("Enable Silver")]
+		[Tooltip("Allow players to gain experience for and master silver armor.")]
+		[DefaultValue(true)]
+		[ReloadRequired]
+		public bool EnableSilver;
+
+		[Label("Silver EXP Required")]
+		[Tooltip("Amount of experience required to master the Silver Armor set.\nDefault 1400.")]
+		[Range(0, 65535)]
+		[DefaultValue(1400)]
+		[ReloadRequired]
+		public int SilverEXP;
+
+		[Label("Enable Tungsten")]
+		[Tooltip("Allow players to gain experience for and master tungsten armor.")]
+		[DefaultValue(true)]
+		[ReloadRequired]
+		public bool EnableTungsten;
+
+		[Label("Tungsten EXP Required")]
+		[Tooltip("Amount of experience required to master the Tungsten Armor set.\nDefault 1500.")]
+		[Range(0, 65535)]
+		[DefaultValue(1500)]
+		[ReloadRequired]
+		public int TungstenEXP;
 	}//end class ArmorSetConfig
 }//end namespace PermanentSetBonuses.Config
