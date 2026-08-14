@@ -59,5 +59,31 @@ namespace PermanentSetBonuses.Config
 		[DefaultValue(575)]
 		[ReloadRequired]
 		public int MahoganyEXP;
+
+		[Label("Enable Ebonwood")]
+		[Tooltip("Allow players to gain experience for and master ebonwood armor.")]
+		[DefaultValue(true)]
+		[ReloadRequired]
+		public bool EnableEbonwood;
+
+		[Label("Ebonwood EXP Required")]
+		[Tooltip("Amount of experience required to master the Ebonwood Armor set.\nDefault 700.")]
+		[Range(0, 65535)]
+		[DefaultValue(700)]
+		[ReloadRequired]
+		public int EbonEXP;
+
+		[Label("Enable Shadewood")]
+		[Tooltip("Allow players to gain experience for and master shadewood armor.")]
+		[DefaultValue(true)]
+		[ReloadRequired]
+		public bool EnableShadewood;
+
+		[Label("Shadewood EXP Required")]
+		[Tooltip("Amount of experience required to master the Shadewood Armor set.\nDefault 700.")]
+		[Range(0, 65535)]
+		[DefaultValue(700)]
+		[ReloadRequired]
+		public int ShadeEXP;
 	}//end class ArmorSetConfig
 }//end namespace PermanentSetBonuses.Config

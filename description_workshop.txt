@@ -1,1 +1,5 @@
-This description will show up on the steam page, check out https://steamcommunity.com/comment/Guide/formattinghelp.
+Permanent Set Bonuses lets you earn experience points when using an armor set. When you accumulate enough points for a particular set, you get a permanent copy of that set bonus. (It stacks with the original bonus.) This is as powerful as it sounds, so I've attempted to make the default experience requirements higher than a skilled player would gain in their normal progression (though being a medium-low skill player myself, I've had to estimate).
+
+This mod is currently in beta! At the moment it only includes pre-hardmode defense-increasing armor set bonuses and has not been tested in multiplayer.
+
+Source code for the mod can be found here: https://github.com/RachelsNotEvil/PermanentSetBonuses
