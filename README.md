@@ -22,3 +22,14 @@ Each armor set has an experience amount needed for mastery. Using a special hotk
 •More complicated consolidation options, such as a user taking one ore's set bonus locking them out of obtaining the alternate ore's bonus.
 •Granting larger set bonuses over multiple mastery levels.
 •New bonus for sets that normally do not have one? (e.g. Rain set)
+
+### Next steps:
+This mod is being prepared for an initial Steam Workshop release! In advance of that I intend to:
+
+•Fix experience tables to account for many more enemy types
+
+•Create custom icons
+
+We're almost there! Once the mod is released, I have these goals for the next version:
+
+•Cactus and Pumpkin armor sets, and at least one of magic or mining.
