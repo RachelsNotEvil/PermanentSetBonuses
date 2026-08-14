@@ -164,5 +164,31 @@ namespace PermanentSetBonuses.Config
 		[DefaultValue(1500)]
 		[ReloadRequired]
 		public int TungstenEXP;
+
+		[Label("Enable Gold")]
+		[Tooltip("Allow players to gain experience for and master gold armor.")]
+		[DefaultValue(true)]
+		[ReloadRequired]
+		public bool EnableGold;
+
+		[Label("Gold EXP Required")]
+		[Tooltip("Amount of experience required to master the Gold Armor set.\nDefault 1800.")]
+		[Range(0, 65535)]
+		[DefaultValue(1800)]
+		[ReloadRequired]
+		public int GoldEXP;
+
+		[Label("Enable Platinum")]
+		[Tooltip("Allow players to gain experience for and master platinum armor.")]
+		[DefaultValue(true)]
+		[ReloadRequired]
+		public bool EnablePlatinum;
+
+		[Label("Platinum EXP Required")]
+		[Tooltip("Amount of experience required to master the Platinum Armor set.\nDefault 2400.")]
+		[Range(0, 65535)]
+		[DefaultValue(2400)]
+		[ReloadRequired]
+		public int PlatinumEXP;
 	}//end class ArmorSetConfig
 }//end namespace PermanentSetBonuses.Config
