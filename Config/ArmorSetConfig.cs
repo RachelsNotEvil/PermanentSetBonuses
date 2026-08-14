@@ -112,5 +112,31 @@ namespace PermanentSetBonuses.Config
 		[DefaultValue(800)]
 		[ReloadRequired]
 		public int TinEXP;
+
+		[Label("Enable Iron")]
+		[Tooltip("Allow players to gain experience for and master iron armor.")]
+		[DefaultValue(true)]
+		[ReloadRequired]
+		public bool EnableIron;
+
+		[Label("Iron EXP Required")]
+		[Tooltip("Amount of experience required to master the Iron Armor set.\nDefault 1000.")]
+		[Range(0, 65535)]
+		[DefaultValue(1000)]
+		[ReloadRequired]
+		public int IronEXP;
+
+		[Label("Enable Lead")]
+		[Tooltip("Allow players to gain experience for and master lead armor.")]
+		[DefaultValue(true)]
+		[ReloadRequired]
+		public bool EnableLead;
+
+		[Label("Lead EXP Required")]
+		[Tooltip("Amount of experience required to master the Lead Armor set.\nDefault 1250.")]
+		[Range(0, 65535)]
+		[DefaultValue(1250)]
+		[ReloadRequired]
+		public int LeadEXP;
 	}//end class ArmorSetConfig
 }//end namespace PermanentSetBonuses.Config
