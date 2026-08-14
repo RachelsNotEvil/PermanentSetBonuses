@@ -85,5 +85,32 @@ namespace PermanentSetBonuses.Config
 		[DefaultValue(700)]
 		[ReloadRequired]
 		public int ShadeEXP;
+
+		[Header("BasicOres")]
+		[Label("Enable Copper")]
+		[Tooltip("Allow players to gain experience for and master copper armor.")]
+		[DefaultValue(true)]
+		[ReloadRequired]
+		public bool EnableCopper;
+
+		[Label("Copper EXP Required")]
+		[Tooltip("Amount of experience required to master the Copper Armor set.\nDefault 750")]
+		[Range(0, 65535)]
+		[DefaultValue(750)]
+		[ReloadRequired]
+		public int CopperEXP;
+
+		[Label("Enable Tin")]
+		[Tooltip("Allow players to gain experience for and master tin armor.")]
+		[DefaultValue(true)]
+		[ReloadRequired]
+		public bool EnableTin;
+
+		[Label("Tin EXP Required")]
+		[Tooltip("Amount of experience required to master the Tin Armor set.\nDefault 800.")]
+		[Range(0, 65535)]
+		[DefaultValue(800)]
+		[ReloadRequired]
+		public int TinEXP;
 	}//end class ArmorSetConfig
 }//end namespace PermanentSetBonuses.Config
