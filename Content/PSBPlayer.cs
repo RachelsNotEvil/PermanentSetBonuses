@@ -244,6 +244,7 @@ namespace PermanentSetBonuses.Content
 			{
 				case NPCID.JungleSlime:
 				case NPCID.PurpleSlime:
+				case NPCID.BlackSlime:
 				case NPCID.DemonEye:
 				case NPCID.Zombie:
 				case NPCID.BigTwiggyZombie:
@@ -298,7 +299,146 @@ namespace PermanentSetBonuses.Content
 				case NPCID.TorchZombie:
 				case NPCID.Dandelion:
 				case NPCID.MaggotZombie:
+				case NPCID.Skeleton:
+				case NPCID.HeadacheSkeleton:
+				case NPCID.MisassembledSkeleton:
+				case NPCID.PantlessSkeleton:
+				case NPCID.MeteorHead:
+				case NPCID.GoblinThief:
+				case NPCID.UndeadMiner:
+				case NPCID.Antlion:
+				case NPCID.SeaSnail:
+				case NPCID.Squid:
+				case NPCID.SandSlime:
+				case NPCID.FlyingAntlion:
+				case NPCID.BigPantlessSkeleton:
+				case NPCID.SmallPantlessSkeleton:
+				case NPCID.BigMisassembledSkeleton:
+				case NPCID.SmallMisassembledSkeleton:
+				case NPCID.BigHeadacheSkeleton:
+				case NPCID.SmallHeadacheSkeleton:
+				case NPCID.BigHeadacheSkeleton:
+				case NPCID.SmallSkeleton:
+				case NPCID.HeadacheSkeleton:
+				case NPCID.MisassembledSkeleton:
+				case NPCID.PantlessSkeleton:
 					return 11;
+				case NPCID.BigEater:
+				case NPCID.LittleEater:
+				case NPCID.EaterofSouls:
+				case NPCID.GiantWormHead:
+				case NPCID.GoblinWarrior:
+				case NPCID.GoblinSorcerer:
+				case NPCID.ManEater:
+				case NPCID.JungleBat:
+				case NPCID.Snatcher:
+				case NPCID.BlueJellyfish:
+				case NPCID.PinkJellyfish:
+				case NPCID.GreenJellyfish:
+				case NPCID.GoblinArcher:
+				case NPCID.IceBat:
+				case NPCID.WallCreeper:
+				case NPCID.WallCreeperWall:
+				case NPCID.UndeadViking:
+				case NPCID.Crimera:
+				case NPCID.FaceMonster:
+				case NPCID.SpikedIceSlime:
+				case NPCID.BloodCrawler:
+				case NPCID.BloodCrawlerWall:
+				case NPCID.ZombieMushroom:
+				case NPCID.ZombieMushroomHat:
+				case NPCID.ArmedZombie:
+				case NPCID.ArmedZombieEskimo:
+				case NPCID.ArmedZombiePincussion:
+				case NPCID.ArmedZombieSlimed:
+				case NPCID.ArmedZombieSwamp:
+				case NPCID.ArmedZombieTwiggy:
+				case NPCID.ArmedZombieCenx:
+				case NPCID.BoneThrowingSkeleton:
+				case NPCID.BoneThrowingSkeleton2:
+				case NPCID.BoneThrowingSkeleton3:
+				case NPCID.BoneThrowingSkeleton4:
+				case NPCID.GraniteGolem:
+				case NPCID.BloodZombie:
+				case NPCID.Drippler:
+				case NPCID.Crawdad:
+				case NPCID.Crawdad2:
+				case NPCID.GiantFlyingAntlion:
+				case NPCID.WalkingAntlion:
+				case NPCID.ArmedTorchZombie:
+				case NPCID.SporeSkeleton:
+				case NPCID.BigCrimera:
+				case NPCID.LittleCrimera:
+				case NPCID.DoctorBones:
+				case NPCID.TheGroom:
+					return 12;
+				case NPCID.SpikedJungleSlime:
+				case NPCID.JungleCreeper:
+				case NPCID.JungleCreeperWall:
+				case NPCID.AnomuraFungus:
+				case NPCID.MushiLadybug:
+				case NPCID.FungiBulb:
+				case NPCID.Ghost:
+				case NPCID.Hoplite:
+				case NPCID.GiantShelly:
+				case NPCID.GiantShelly2:
+				case NPCID.Salamander:
+				case NPCID.Salamander2:
+				case NPCID.Salamander3:
+				case NPCID.Salamander4:
+				case NPCID.Salamander5:
+				case NPCID.Salamander6:
+				case NPCID.Salamander7:
+				case NPCID.Salamander8:
+				case NPCID.Salamander9:
+				case NPCID.GiantWalkingAntlion:
+				case NPCID.TombCrawlerHead:
+				case NPCID.LittleHornetStingy:
+				case NPCID.LittleHornetSpikey:
+				case NPCID.LittleHornetLeafy:
+				case NPCID.LittleHornetHoney:
+				case NPCID.LittleHornetFatty:
+				case NPCID.LittleStinger:
+				case NPCID.AngryBones:
+				case NPCID.CursedSkull:
+				case NPCID.Hornet:
+				case NPCID.HornetFatty:
+				case NPCID.HornetHoney:
+				case NPCID.HornetLeafy:
+				case NPCID.HornetSpikey:
+				case NPCID.HornetStingy:
+					return 13;
+				case NPCID.BigHornetStingy:
+				case NPCID.BigHornetSpikey:
+				case NPCID.BigHornetLeafy:
+				case NPCID.BigHornetHoney:
+				case NPCID.BigHornetFatty:
+				case NPCID.BigStinger:
+				case NPCID.DarkCaster:
+					return 14;
+				case NPCID.DevourerHead:
+				case NPCID.Tim:
+				case NPCID.EyeballFlyingFish:
+				case NPCID.Nymph:
+					return 15;
+				case NPCID.ZombieMerman:
+				case NPCID.Harpy:
+					return 16;
+				case NPCID.BlueSlime:
+				case NPCID.EaterofWorldsHead:
+				case NPCID.Creeper:
+					return 8;
+				case NPCID.GreenSlime:
+				case NPCID.ServantofCthulhu:
+				case NPCID.Bee:
+					return 5;
+				case NPCID.BeeSmall:
+					return 4;
+				case NPCID.KingSlime:
+				case NPCID.BrainofCthulhu:
+					return 20;
+				case NPCID.EyeofCthulhu:
+					return 25;
 				default:
 					return 10;
 			}
