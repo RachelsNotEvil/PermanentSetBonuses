@@ -3,7 +3,11 @@ Keybinds.CheckSetXP.DisplayName: Check Set XP
 Configs: {
 	ArmorSetConfig: {
 		DisplayName: Armor Set Config
-		Headers.WoodArmor: Wood Armor Sets
+
+		Headers: {
+			WoodArmor: Wood Armor Sets
+			BasicOres: Basic Ores Header
+		}
 
 		EnableWood: {
 			Label: Enable Wood Armor
@@ -16,6 +20,188 @@ Configs: {
 				'''
 				Amount of experience required to master the Wood Armor set.
 				Default 500.
+				'''
+		}
+
+		EnableBorealWood: {
+			Label: Enable Boreal Wood Armor
+			Tooltip: Allow players to gain experience for and master boreal wood armor.
+		}
+
+		BorealEXP: {
+			Label: Boreal Wood EXP Required
+			Tooltip:
+				'''
+				Amount of experince required to master the Boreal Wood Armor set.
+				Default 550.
+				'''
+		}
+
+		EnablePalmWood: {
+			Label: Enable Palm Wood Armor
+			Tooltip: Allow players to gain experience for and master palm wood armor.
+		}
+
+		PalmEXP: {
+			Label: Palm Wood EXP Required
+			Tooltip:
+				'''
+				Amount of experience required to master the Palm Wood Armor set.
+				Default 550.
+				'''
+		}
+
+		EnableMahogany: {
+			Label: Enable Rich Mahogany
+			Tooltip: Allow players to gain experience for and master rich mahogany armor.
+		}
+
+		MahoganyEXP: {
+			Label: Rich Mahogany EXP Required
+			Tooltip:
+				'''
+				Amount of experience required to master the Rich Mahogany Armor set.
+				Default 575.
+				'''
+		}
+
+		EnableEbonwood: {
+			Label: Enable Ebonwood
+			Tooltip: Allow players to gain experience for and master ebonwood armor.
+		}
+
+		EbonEXP: {
+			Label: Ebonwood EXP Required
+			Tooltip:
+				'''
+				Amount of experience required to master the Ebonwood Armor set.
+				Default 700.
+				'''
+		}
+
+		EnableShadewood: {
+			Label: Enable Shadewood
+			Tooltip: Allow players to gain experience for and master shadewood armor.
+		}
+
+		ShadeEXP: {
+			Label: Shadewood EXP Required
+			Tooltip:
+				'''
+				Amount of experience required to master the Shadewood Armor set.
+				Default 700.
+				'''
+		}
+
+		EnableCopper: {
+			Label: Enable Copper
+			Tooltip: Allow players to gain experience for and master copper armor.
+		}
+
+		CopperEXP: {
+			Label: Copper EXP Required
+			Tooltip:
+				'''
+				Amount of experience required to master the Copper Armor set.
+				Default 750
+				'''
+		}
+
+		EnableTin: {
+			Label: Enable Tin
+			Tooltip: Allow players to gain experience for and master tin armor.
+		}
+
+		TinEXP: {
+			Label: Tin EXP Required
+			Tooltip:
+				'''
+				Amount of experience required to master the Tin Armor set.
+				Default 800.
+				'''
+		}
+
+		EnableIron: {
+			Label: Enable Iron
+			Tooltip: Allow players to gain experience for and master iron armor.
+		}
+
+		IronEXP: {
+			Label: Iron EXP Required
+			Tooltip:
+				'''
+				Amount of experience required to master the Iron Armor set.
+				Default 1000.
+				'''
+		}
+
+		EnableLead: {
+			Label: Enable Lead
+			Tooltip: Allow players to gain experience for and master lead armor.
+		}
+
+		LeadEXP: {
+			Label: Lead EXP Required
+			Tooltip:
+				'''
+				Amount of experience required to master the Lead Armor set.
+				Default 1250.
+				'''
+		}
+
+		EnableSilver: {
+			Label: Enable Silver
+			Tooltip: Allow players to gain experience for and master silver armor.
+		}
+
+		SilverEXP: {
+			Label: Silver EXP Required
+			Tooltip:
+				'''
+				Amount of experience required to master the Silver Armor set.
+				Default 1400.
+				'''
+		}
+
+		EnableTungsten: {
+			Label: Enable Tungsten
+			Tooltip: Allow players to gain experience for and master tungsten armor.
+		}
+
+		TungstenEXP: {
+			Label: Tungsten EXP Required
+			Tooltip:
+				'''
+				Amount of experience required to master the Tungsten Armor set.
+				Default 1500.
+				'''
+		}
+
+		EnableGold: {
+			Label: Enable Gold
+			Tooltip: Allow players to gain experience for and master gold armor.
+		}
+
+		GoldEXP: {
+			Label: Gold EXP Required
+			Tooltip:
+				'''
+				Amount of experience required to master the Gold Armor set.
+				Default 1800.
+				'''
+		}
+
+		EnablePlatinum: {
+			Label: Enable Platinum
+			Tooltip: Allow players to gain experience for and master platinum armor.
+		}
+
+		PlatinumEXP: {
+			Label: Platinum EXP Required
+			Tooltip:
+				'''
+				Amount of experience required to master the Platinum Armor set.
+				Default 2400.
 				'''
 		}
 	}

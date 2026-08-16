@@ -287,7 +287,6 @@ namespace PermanentSetBonuses.Content
 				case NPCID.ZombieRaincoat:
 				case NPCID.UmbrellaSlime:
 				case NPCID.Raven:
-				case NPCID.Ghost:
 				case NPCID.DemonEyeOwl:
 				case NPCID.DemonEyeSpaceship:
 				case NPCID.ZombieDoctor:
@@ -317,11 +316,7 @@ namespace PermanentSetBonuses.Content
 				case NPCID.SmallMisassembledSkeleton:
 				case NPCID.BigHeadacheSkeleton:
 				case NPCID.SmallHeadacheSkeleton:
-				case NPCID.BigHeadacheSkeleton:
 				case NPCID.SmallSkeleton:
-				case NPCID.HeadacheSkeleton:
-				case NPCID.MisassembledSkeleton:
-				case NPCID.PantlessSkeleton:
 					return 11;
 				case NPCID.BigEater:
 				case NPCID.LittleEater:
@@ -379,7 +374,7 @@ namespace PermanentSetBonuses.Content
 				case NPCID.MushiLadybug:
 				case NPCID.FungiBulb:
 				case NPCID.Ghost:
-				case NPCID.Hoplite:
+				case NPCID.GreekSkeleton:
 				case NPCID.GiantShelly:
 				case NPCID.GiantShelly2:
 				case NPCID.Salamander:
