@@ -6,7 +6,7 @@ Configs: {
 
 		Headers: {
 			WoodArmor: Wood Armor Sets
-			BasicOres: Basic Ores Header
+			BasicOres: Pre-Hardmode Ore Armor Sets
 		}
 
 		EnableWood: {

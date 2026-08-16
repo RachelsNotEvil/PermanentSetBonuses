@@ -14,6 +14,7 @@ Each armor set has an experience amount needed for mastery. Using a special hotk
 •Config options that allow users to enable/disable each armor set individually, and to adjust the amount of experience an armor set requires, with 0 allowing you to obtain the bonus as soon as you equip the set for the first time.
 •Some minor optimization, eliminating waste that resulted from previous refactors.
 •Further config options that allow users to combine very similar armor sets to only provide 1 permanent bonus, such as all of the basic woods.
+•Adjust user-facing text to rely more on localizations.
 
 ### Stretch goals (in no particular order):
 •Support for popular mods like Calamity??
