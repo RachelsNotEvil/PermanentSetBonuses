@@ -24,7 +24,8 @@ namespace PermanentSetBonuses.Content
 		Silver,
 		Tungsten,
 		Gold,
-		Platinum
+		Platinum,
+		Cactus
 	}
 
 	public struct ArmorSetParameters
@@ -57,8 +58,14 @@ namespace PermanentSetBonuses.Content
 		//Set up initial/default state
 		public override void SetStaticDefaults()
 		{
-			setXP = new int[System.Enum.GetNames(typeof(ArmorSet)).Length];
-			activeSets = new bool[setXP.Length];
+			if (setXP == null)
+			{
+				setXP = new int[System.Enum.GetNames(typeof(ArmorSet)).Length];
+			}
+			if (activeSets == null)
+			{
+				activeSets = new bool[setXP.Length];
+			}
 			armorSet = null;
 			expBonus = false;
 			maxXP = 0;
@@ -85,7 +92,8 @@ namespace PermanentSetBonuses.Content
 				{ArmorSet.Silver, new ArmorSetParameters { validHelmets = new int[] {ItemID.SilverHelmet}, validChests = new int[] {ItemID.SilverChainmail}, validGreaves = new int[] {ItemID.SilverGreaves}, maxXP = ModContent.GetInstance<ArmorSetConfig>().SilverEXP, textR = 171, textG = 182, textB = 183, bonusWeapons = new int[] {ItemID.SilverAxe, ItemID.SilverPickaxe, ItemID.SilverHammer, ItemID.SilverBow, ItemID.SilverShortsword, ItemID.SilverBroadsword, ItemID.SapphireStaff}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnableSilver}},
 				{ArmorSet.Tungsten, new ArmorSetParameters { validHelmets = new int[] {ItemID.TungstenHelmet}, validChests = new int[] {ItemID.TungstenChainmail}, validGreaves = new int[] {ItemID.TungstenGreaves}, maxXP = ModContent.GetInstance<ArmorSetConfig>().TungstenEXP, textR = 202, textG = 233, textB = 207, bonusWeapons = new int[] {ItemID.TungstenAxe, ItemID.TungstenPickaxe, ItemID.TungstenHammer, ItemID.TungstenBow, ItemID.TungstenShortsword, ItemID.TungstenBroadsword, ItemID.EmeraldStaff}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnableTungsten}},
 				{ArmorSet.Gold, new ArmorSetParameters { validHelmets = new int[] {ItemID.GoldHelmet, ItemID.AncientGoldHelmet}, validChests = new int[] {ItemID.GoldChainmail}, validGreaves = new int[] {ItemID.GoldGreaves}, maxXP = ModContent.GetInstance<ArmorSetConfig>().GoldEXP, textR = 255, textG = 249, textB = 183, bonusWeapons = new int[] {ItemID.GoldAxe, ItemID.GoldPickaxe, ItemID.GoldHammer, ItemID.GoldBow, ItemID.GoldShortsword, ItemID.GoldBroadsword, ItemID.FlinxStaff, ItemID.RubyStaff}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnableGold}},
-				{ArmorSet.Platinum, new ArmorSetParameters { validHelmets = new int[] {ItemID.PlatinumHelmet}, validChests = new int[] {ItemID.PlatinumChainmail}, validGreaves = new int[] {ItemID.PlatinumGreaves}, maxXP = ModContent.GetInstance<ArmorSetConfig>().PlatinumEXP, textR = 246, textG = 216, textB = 235, bonusWeapons = new int[] {ItemID.PlatinumAxe, ItemID.PlatinumPickaxe, ItemID.PlatinumHammer, ItemID.PlatinumBow, ItemID.PlatinumShortsword, ItemID.PlatinumBroadsword, ItemID.FlinxStaff, ItemID.DiamondStaff}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnablePlatinum}}
+				{ArmorSet.Platinum, new ArmorSetParameters { validHelmets = new int[] {ItemID.PlatinumHelmet}, validChests = new int[] {ItemID.PlatinumChainmail}, validGreaves = new int[] {ItemID.PlatinumGreaves}, maxXP = ModContent.GetInstance<ArmorSetConfig>().PlatinumEXP, textR = 246, textG = 216, textB = 235, bonusWeapons = new int[] {ItemID.PlatinumAxe, ItemID.PlatinumPickaxe, ItemID.PlatinumHammer, ItemID.PlatinumBow, ItemID.PlatinumShortsword, ItemID.PlatinumBroadsword, ItemID.FlinxStaff, ItemID.DiamondStaff}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnablePlatinum}},
+				{ArmorSet.Cactus, new ArmorSetParameters {validHelmets = new int[] {ItemID.CactusHelmet}, validChests = new int[] {ItemID.CactusBreastplate}, validGreaves = new int[] {ItemID.CactusLeggings}, maxXP = ModContent.GetInstance<ArmorSetConfig>().CactusEXP, textR = 120, textG = 250, textB = 120, bonusWeapons = new int[] {ItemID.CactusPickaxe, ItemID.CactusSword}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnableCactus}}
 			};
 		}
 
@@ -524,6 +532,27 @@ namespace PermanentSetBonuses.Content
 				ApplyBuff(ArmorSet.Tungsten);
 			}
 		}//end PostUpdateMiscEffects
+
+		public override void OnHitByNPC (NPC npc, Player.HurtInfo hurtInfo)
+		{
+			//Modeled loosely on vanilla cactus thorn damage code
+			int npcID = npc.whoAmI;
+			if (Player.whoAmI == Main.myPlayer && activeSets[(int)ArmorSet.Cactus] && !Main.npc[npcID].dontTakeDamage)
+			{
+				int damage = 15;
+				if (Main.masterMode)
+				{
+					damage = 45;
+				} else if (Main.expertMode)
+				{
+					damage = 30;
+				}
+				//Not sure about knockback or direction here.
+				Main.player[Player.whoAmI].ApplyDamageToNPC(npc, damage, 0f, -1, false);
+			}
+
+
+		}//end OnHitByNPC
 
 		public override void SaveData(TagCompound tag)
 		{

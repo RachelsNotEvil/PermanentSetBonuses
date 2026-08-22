@@ -190,5 +190,19 @@ namespace PermanentSetBonuses.Config
 		[DefaultValue(2400)]
 		[ReloadRequired]
 		public int PlatinumEXP;
+
+		[Header("OtherPreHardmode")]
+		[Label("Enable Cactus")]
+		[Tooltip("Allow players to gain experience for and master cactus armor.")]
+		[DefaultValue(true)]
+		[ReloadRequired]
+		public bool EnableCactus;
+
+		[Label("Cactus EXP Required")]
+		[Tooltip("Amount of experience required to master the Cactus armor set.\nDefault 900.")]
+		[Range(0, 65535)]
+		[DefaultValue(900)]
+		[ReloadRequired]
+		public int CactusEXP;
 	}//end class ArmorSetConfig
 }//end namespace PermanentSetBonuses.Config

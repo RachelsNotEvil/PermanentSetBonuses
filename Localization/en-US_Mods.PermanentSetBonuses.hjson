@@ -7,6 +7,7 @@ Configs: {
 		Headers: {
 			WoodArmor: Wood Armor Sets
 			BasicOres: Pre-Hardmode Ore Armor Sets
+			OtherPreHardmode: Other Pre Hardmode Header
 		}
 
 		EnableWood: {
@@ -202,6 +203,20 @@ Configs: {
 				'''
 				Amount of experience required to master the Platinum Armor set.
 				Default 2400.
+				'''
+		}
+
+		EnableCactus: {
+			Label: Enable Cactus
+			Tooltip: Allow players to gain experience for and master cactus armor.
+		}
+
+		CactusEXP: {
+			Label: Cactus EXP Required
+			Tooltip:
+				'''
+				Amount of experience required to master the Cactus armor set.
+				Default 900.
 				'''
 		}
 	}

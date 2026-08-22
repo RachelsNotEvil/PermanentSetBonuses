@@ -3,3 +3,5 @@ Permanent Set Bonuses lets you earn experience points when using an armor set. W
 This mod is currently in beta! At the moment it only includes pre-hardmode defense-increasing armor set bonuses and has not been tested in multiplayer.
 
 Source code for the mod can be found here: https://github.com/RachelsNotEvil/PermanentSetBonuses
+
+Known issues: Mod seems to have problems applying buffs in Journey mode. Is Journey mode doing something similar to multiplayer behind the scenes? (i.e. if we're lucky, fixing server updates will fix this)
