@@ -26,7 +26,8 @@ namespace PermanentSetBonuses.Content
 		Gold,
 		Platinum,
 		Cactus,
-		Pumpkin
+		Pumpkin,
+		Ninja
 	}
 
 	public struct ArmorSetParameters
@@ -95,7 +96,8 @@ namespace PermanentSetBonuses.Content
 				{ArmorSet.Gold, new ArmorSetParameters { validHelmets = new int[] {ItemID.GoldHelmet, ItemID.AncientGoldHelmet}, validChests = new int[] {ItemID.GoldChainmail}, validGreaves = new int[] {ItemID.GoldGreaves}, maxXP = ModContent.GetInstance<ArmorSetConfig>().GoldEXP, textR = 255, textG = 249, textB = 183, bonusWeapons = new int[] {ItemID.GoldAxe, ItemID.GoldPickaxe, ItemID.GoldHammer, ItemID.GoldBow, ItemID.GoldShortsword, ItemID.GoldBroadsword, ItemID.FlinxStaff, ItemID.RubyStaff}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnableGold}},
 				{ArmorSet.Platinum, new ArmorSetParameters { validHelmets = new int[] {ItemID.PlatinumHelmet}, validChests = new int[] {ItemID.PlatinumChainmail}, validGreaves = new int[] {ItemID.PlatinumGreaves}, maxXP = ModContent.GetInstance<ArmorSetConfig>().PlatinumEXP, textR = 246, textG = 216, textB = 235, bonusWeapons = new int[] {ItemID.PlatinumAxe, ItemID.PlatinumPickaxe, ItemID.PlatinumHammer, ItemID.PlatinumBow, ItemID.PlatinumShortsword, ItemID.PlatinumBroadsword, ItemID.FlinxStaff, ItemID.DiamondStaff}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnablePlatinum}},
 				{ArmorSet.Cactus, new ArmorSetParameters {validHelmets = new int[] {ItemID.CactusHelmet}, validChests = new int[] {ItemID.CactusBreastplate}, validGreaves = new int[] {ItemID.CactusLeggings}, maxXP = ModContent.GetInstance<ArmorSetConfig>().CactusEXP, textR = 120, textG = 250, textB = 120, bonusWeapons = new int[] {ItemID.CactusPickaxe, ItemID.CactusSword}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnableCactus}},
-				{ArmorSet.Pumpkin, new ArmorSetParameters {validHelmets = new int[] {ItemID.PumpkinHelmet}, validChests = new int[] {ItemID.PumpkinBreastplate}, validGreaves = new int[] {ItemID.PumpkinLeggings}, maxXP = ModContent.GetInstance<ArmorSetConfig>().PumpkinEXP, textR = 200, textG = 150, textB = 100, bonusWeapons = new int[] {ItemID.TheHorsemansBlade, ItemID.JackOLanternLauncher}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnablePumpkin}}
+				{ArmorSet.Pumpkin, new ArmorSetParameters {validHelmets = new int[] {ItemID.PumpkinHelmet}, validChests = new int[] {ItemID.PumpkinBreastplate}, validGreaves = new int[] {ItemID.PumpkinLeggings}, maxXP = ModContent.GetInstance<ArmorSetConfig>().PumpkinEXP, textR = 200, textG = 150, textB = 100, bonusWeapons = new int[] {ItemID.TheHorsemansBlade, ItemID.JackOLanternLauncher}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnablePumpkin}},
+				{ArmorSet.Ninja, new ArmorSetParameters {validHelmets = new int[] {ItemID.NinjaHood}, validChests = new int[] {ItemID.NinjaShirt}, validGreaves = new int[] {ItemID.NinjaPants}, maxXP = ModContent.GetInstance<ArmorSetConfig>().NinjaEXP, textR = 190, textG = 190, textB = 200, bonusWeapons = new int[] {ItemID.SlimeGun, ItemID.SlimeStaff, ItemID.Shuriken, ItemID.Katana}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnableNinja}}
 			};
 		}
 
@@ -430,12 +432,12 @@ namespace PermanentSetBonuses.Content
 				case NPCID.Harpy:
 					return 16;
 				case NPCID.BlueSlime:
-				case NPCID.EaterofWorldsHead:
 				case NPCID.Creeper:
 					return 8;
 				case NPCID.GreenSlime:
 				case NPCID.ServantofCthulhu:
 				case NPCID.Bee:
+				case NPCID.EaterofWorldsHead:
 					return 5;
 				case NPCID.BeeSmall:
 					return 4;
@@ -477,6 +479,9 @@ namespace PermanentSetBonuses.Content
 					break;
 				case ArmorSet.Pumpkin:
 					Main.LocalPlayer.GetDamage<GenericDamageClass>() += 0.1f;
+					break;
+				case ArmorSet.Ninja:
+					Main.LocalPlayer.moveSpeed += 0.2f;
 					break;
 			}
 		}//end ApplyBuff
@@ -539,6 +544,10 @@ namespace PermanentSetBonuses.Content
 			if (activeSets[(int)ArmorSet.Pumpkin])
 			{
 				ApplyBuff(ArmorSet.Pumpkin);
+			}
+			if (activeSets[(int)ArmorSet.Ninja])
+			{
+				ApplyBuff(ArmorSet.Ninja);
 			}
 		}//end PostUpdateMiscEffects
 

@@ -217,5 +217,18 @@ namespace PermanentSetBonuses.Config
 		[DefaultValue(2000)]
 		[ReloadRequired]
 		public int PumpkinEXP;
+
+		[Label("Enable Ninja")]
+		[Tooltip("Allow players to gain experience for and master ninja armor.")]
+		[DefaultValue(true)]
+		[ReloadRequired]
+		public bool EnableNinja;
+
+		[Label("Ninja EXP Required")]
+		[Tooltip("Amount of experience required to master the Ninja armor set.\nDefault 1600")]
+		[Range(0, 65535)]
+		[DefaultValue(1600)]
+		[ReloadRequired]
+		public int NinjaEXP;
 	}//end class ArmorSetConfig
 }//end namespace PermanentSetBonuses.Config

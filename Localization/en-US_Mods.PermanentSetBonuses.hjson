@@ -233,5 +233,19 @@ Configs: {
 				Default 2000.
 				'''
 		}
+
+		EnableNinja: {
+			Label: Enable Ninja
+			Tooltip: Allow players to gain experience for and master ninja armor.
+		}
+
+		NinjaEXP: {
+			Label: Ninja EXP Required
+			Tooltip:
+				'''
+				Amount of experience required to master the Ninja armor set.
+				Default 1600
+				'''
+		}
 	}
 }
