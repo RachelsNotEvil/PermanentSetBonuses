@@ -219,5 +219,19 @@ Configs: {
 				Default 900.
 				'''
 		}
+
+		EnablePumpkin: {
+			Label: Enable Pumpkin
+			Tooltip: Allow players to gain experience for and master pumpkin armor.
+		}
+
+		PumpkinEXP: {
+			Label: Pumpkin EXP Required
+			Tooltip:
+				'''
+				Amount of experience required to master the Pumpkin armor set.
+				Default 2000.
+				'''
+		}
 	}
 }

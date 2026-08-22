@@ -25,7 +25,8 @@ namespace PermanentSetBonuses.Content
 		Tungsten,
 		Gold,
 		Platinum,
-		Cactus
+		Cactus,
+		Pumpkin
 	}
 
 	public struct ArmorSetParameters
@@ -93,7 +94,8 @@ namespace PermanentSetBonuses.Content
 				{ArmorSet.Tungsten, new ArmorSetParameters { validHelmets = new int[] {ItemID.TungstenHelmet}, validChests = new int[] {ItemID.TungstenChainmail}, validGreaves = new int[] {ItemID.TungstenGreaves}, maxXP = ModContent.GetInstance<ArmorSetConfig>().TungstenEXP, textR = 202, textG = 233, textB = 207, bonusWeapons = new int[] {ItemID.TungstenAxe, ItemID.TungstenPickaxe, ItemID.TungstenHammer, ItemID.TungstenBow, ItemID.TungstenShortsword, ItemID.TungstenBroadsword, ItemID.EmeraldStaff}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnableTungsten}},
 				{ArmorSet.Gold, new ArmorSetParameters { validHelmets = new int[] {ItemID.GoldHelmet, ItemID.AncientGoldHelmet}, validChests = new int[] {ItemID.GoldChainmail}, validGreaves = new int[] {ItemID.GoldGreaves}, maxXP = ModContent.GetInstance<ArmorSetConfig>().GoldEXP, textR = 255, textG = 249, textB = 183, bonusWeapons = new int[] {ItemID.GoldAxe, ItemID.GoldPickaxe, ItemID.GoldHammer, ItemID.GoldBow, ItemID.GoldShortsword, ItemID.GoldBroadsword, ItemID.FlinxStaff, ItemID.RubyStaff}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnableGold}},
 				{ArmorSet.Platinum, new ArmorSetParameters { validHelmets = new int[] {ItemID.PlatinumHelmet}, validChests = new int[] {ItemID.PlatinumChainmail}, validGreaves = new int[] {ItemID.PlatinumGreaves}, maxXP = ModContent.GetInstance<ArmorSetConfig>().PlatinumEXP, textR = 246, textG = 216, textB = 235, bonusWeapons = new int[] {ItemID.PlatinumAxe, ItemID.PlatinumPickaxe, ItemID.PlatinumHammer, ItemID.PlatinumBow, ItemID.PlatinumShortsword, ItemID.PlatinumBroadsword, ItemID.FlinxStaff, ItemID.DiamondStaff}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnablePlatinum}},
-				{ArmorSet.Cactus, new ArmorSetParameters {validHelmets = new int[] {ItemID.CactusHelmet}, validChests = new int[] {ItemID.CactusBreastplate}, validGreaves = new int[] {ItemID.CactusLeggings}, maxXP = ModContent.GetInstance<ArmorSetConfig>().CactusEXP, textR = 120, textG = 250, textB = 120, bonusWeapons = new int[] {ItemID.CactusPickaxe, ItemID.CactusSword}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnableCactus}}
+				{ArmorSet.Cactus, new ArmorSetParameters {validHelmets = new int[] {ItemID.CactusHelmet}, validChests = new int[] {ItemID.CactusBreastplate}, validGreaves = new int[] {ItemID.CactusLeggings}, maxXP = ModContent.GetInstance<ArmorSetConfig>().CactusEXP, textR = 120, textG = 250, textB = 120, bonusWeapons = new int[] {ItemID.CactusPickaxe, ItemID.CactusSword}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnableCactus}},
+				{ArmorSet.Pumpkin, new ArmorSetParameters {validHelmets = new int[] {ItemID.PumpkinHelmet}, validChests = new int[] {ItemID.PumpkinBreastplate}, validGreaves = new int[] {ItemID.PumpkinLeggings}, maxXP = ModContent.GetInstance<ArmorSetConfig>().PumpkinEXP, textR = 200, textG = 150, textB = 100, bonusWeapons = new int[] {ItemID.TheHorsemansBlade, ItemID.JackOLanternLauncher}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnablePumpkin}}
 			};
 		}
 
@@ -473,6 +475,9 @@ namespace PermanentSetBonuses.Content
 				case ArmorSet.Platinum:
 					Main.LocalPlayer.statDefense += 4;
 					break;
+				case ArmorSet.Pumpkin:
+					Main.LocalPlayer.GetDamage<GenericDamageClass>() += 0.1f;
+					break;
 			}
 		}//end ApplyBuff
 
@@ -530,6 +535,10 @@ namespace PermanentSetBonuses.Content
 			if (activeSets[(int)ArmorSet.Tungsten])
 			{
 				ApplyBuff(ArmorSet.Tungsten);
+			}
+			if (activeSets[(int)ArmorSet.Pumpkin])
+			{
+				ApplyBuff(ArmorSet.Pumpkin);
 			}
 		}//end PostUpdateMiscEffects
 

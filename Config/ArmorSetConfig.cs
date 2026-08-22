@@ -204,5 +204,18 @@ namespace PermanentSetBonuses.Config
 		[DefaultValue(900)]
 		[ReloadRequired]
 		public int CactusEXP;
+
+		[Label("Enable Pumpkin")]
+		[Tooltip("Allow players to gain experience for and master pumpkin armor.")]
+		[DefaultValue(true)]
+		[ReloadRequired]
+		public bool EnablePumpkin;
+
+		[Label("Pumpkin EXP Required")]
+		[Tooltip("Amount of experience required to master the Pumpkin armor set.\nDefault 2000.")]
+		[Range(0, 65535)]
+		[DefaultValue(2000)]
+		[ReloadRequired]
+		public int PumpkinEXP;
 	}//end class ArmorSetConfig
 }//end namespace PermanentSetBonuses.Config
