@@ -261,5 +261,19 @@ Configs: {
 				Default 850.
 				'''
 		}
+
+		EnableFossil: {
+			Label: Enable Fossil
+			Tooltip: Allow players to gain experience for and master fossil armor.
+		}
+
+		FossilEXP: {
+			Label: Fossil EXP Required
+			Tooltip:
+				'''
+				Amount of experience required to master the Fossil armor set.
+				Default 950.
+				'''
+		}
 	}
 }

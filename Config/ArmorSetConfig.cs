@@ -243,5 +243,18 @@ namespace PermanentSetBonuses.Config
 		[DefaultValue(850)]
 		[ReloadRequired]
 		public int WizardEXP;
+
+		[Label("Enable Fossil")]
+		[Tooltip("Allow players to gain experience for and master fossil armor.")]
+		[DefaultValue(true)]
+		[ReloadRequired]
+		public bool EnableFossil;
+
+		[Label("Fossil EXP Required")]
+		[Tooltip("Amount of experience required to master the Fossil armor set.\nDefault 950.")]
+		[Range(0, 65535)]
+		[DefaultValue(950)]
+		[ReloadRequired]
+		public int FossilEXP;
 	}//end class ArmorSetConfig
 }//end namespace PermanentSetBonuses.Config

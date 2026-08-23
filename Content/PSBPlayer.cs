@@ -28,7 +28,8 @@ namespace PermanentSetBonuses.Content
 		Cactus,
 		Pumpkin,
 		Ninja,
-		Wizard
+		Wizard,
+		Fossil
 	}
 
 	public struct ArmorSetParameters
@@ -99,7 +100,8 @@ namespace PermanentSetBonuses.Content
 				{ArmorSet.Cactus, new ArmorSetParameters {validHelmets = new int[] {ItemID.CactusHelmet}, validChests = new int[] {ItemID.CactusBreastplate}, validGreaves = new int[] {ItemID.CactusLeggings}, maxXP = ModContent.GetInstance<ArmorSetConfig>().CactusEXP, textR = 120, textG = 250, textB = 120, bonusWeapons = new int[] {ItemID.CactusPickaxe, ItemID.CactusSword}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnableCactus}},
 				{ArmorSet.Pumpkin, new ArmorSetParameters {validHelmets = new int[] {ItemID.PumpkinHelmet}, validChests = new int[] {ItemID.PumpkinBreastplate}, validGreaves = new int[] {ItemID.PumpkinLeggings}, maxXP = ModContent.GetInstance<ArmorSetConfig>().PumpkinEXP, textR = 200, textG = 150, textB = 100, bonusWeapons = new int[] {ItemID.TheHorsemansBlade, ItemID.JackOLanternLauncher}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnablePumpkin}},
 				{ArmorSet.Ninja, new ArmorSetParameters {validHelmets = new int[] {ItemID.NinjaHood}, validChests = new int[] {ItemID.NinjaShirt}, validGreaves = new int[] {ItemID.NinjaPants}, maxXP = ModContent.GetInstance<ArmorSetConfig>().NinjaEXP, textR = 190, textG = 190, textB = 200, bonusWeapons = new int[] {ItemID.SlimeGun, ItemID.SlimeStaff, ItemID.Shuriken, ItemID.Katana}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnableNinja}},
-				{ArmorSet.Wizard, new ArmorSetParameters {validHelmets = new int[] {ItemID.WizardHat, ItemID.MagicHat}, validChests = new int[] {ItemID.AmethystRobe, ItemID.TopazRobe, ItemID.SapphireRobe, ItemID.EmeraldRobe, ItemID.RubyRobe, ItemID.AmberRobe, ItemID.DiamondRobe, ItemID.GypsyRobe}, validGreaves = new int[] {}, maxXP = ModContent.GetInstance<ArmorSetConfig>().WizardEXP, textR = 250, textG = 250, textB = 250, bonusWeapons = new int[] {ItemID.AmethystStaff, ItemID.TopazStaff, ItemID.SapphireStaff, ItemID.EmeraldStaff, ItemID.RubyStaff, ItemID.AmberStaff, ItemID.DiamondStaff}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnableWizard}}
+				{ArmorSet.Wizard, new ArmorSetParameters {validHelmets = new int[] {ItemID.WizardHat, ItemID.MagicHat}, validChests = new int[] {ItemID.AmethystRobe, ItemID.TopazRobe, ItemID.SapphireRobe, ItemID.EmeraldRobe, ItemID.RubyRobe, ItemID.AmberRobe, ItemID.DiamondRobe, ItemID.GypsyRobe}, validGreaves = new int[] {}, maxXP = ModContent.GetInstance<ArmorSetConfig>().WizardEXP, textR = 250, textG = 250, textB = 250, bonusWeapons = new int[] {ItemID.AmethystStaff, ItemID.TopazStaff, ItemID.SapphireStaff, ItemID.EmeraldStaff, ItemID.RubyStaff, ItemID.AmberStaff, ItemID.DiamondStaff}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnableWizard}},
+				{ArmorSet.Fossil, new ArmorSetParameters {validHelmets = new int[] {ItemID.FossilHelm}, validChests = new int[] {ItemID.FossilShirt}, validGreaves = new int[] {ItemID.FossilPants}, maxXP = ModContent.GetInstance<ArmorSetConfig>().FossilEXP, textR = 200, textG = 170, textB = 100, bonusWeapons = new int[] {ItemID.AmberStaff, ItemID.BoneJavelin, ItemID.BoneDagger, ItemID.FossilPickaxe}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnableFossil}}
 			};
 		}
 
@@ -485,6 +487,9 @@ namespace PermanentSetBonuses.Content
 				case ArmorSet.Ninja:
 					Player.moveSpeed += 0.2f;
 					break;
+				case ArmorSet.Fossil:
+					Player.ammoCost80 = true;
+					break;
 			}
 		}//end ApplyBuff
 
@@ -550,6 +555,10 @@ namespace PermanentSetBonuses.Content
 			if (activeSets[(int)ArmorSet.Ninja])
 			{
 				ApplyBuff(ArmorSet.Ninja);
+			}
+			if (activeSets[(int)ArmorSet.Fossil])
+			{
+				ApplyBuff(ArmorSet.Fossil);
 			}
 		}//end PostUpdateMiscEffects
 
