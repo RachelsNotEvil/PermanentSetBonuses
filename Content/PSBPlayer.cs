@@ -27,7 +27,8 @@ namespace PermanentSetBonuses.Content
 		Platinum,
 		Cactus,
 		Pumpkin,
-		Ninja
+		Ninja,
+		Wizard
 	}
 
 	public struct ArmorSetParameters
@@ -97,7 +98,8 @@ namespace PermanentSetBonuses.Content
 				{ArmorSet.Platinum, new ArmorSetParameters { validHelmets = new int[] {ItemID.PlatinumHelmet}, validChests = new int[] {ItemID.PlatinumChainmail}, validGreaves = new int[] {ItemID.PlatinumGreaves}, maxXP = ModContent.GetInstance<ArmorSetConfig>().PlatinumEXP, textR = 246, textG = 216, textB = 235, bonusWeapons = new int[] {ItemID.PlatinumAxe, ItemID.PlatinumPickaxe, ItemID.PlatinumHammer, ItemID.PlatinumBow, ItemID.PlatinumShortsword, ItemID.PlatinumBroadsword, ItemID.FlinxStaff, ItemID.DiamondStaff}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnablePlatinum}},
 				{ArmorSet.Cactus, new ArmorSetParameters {validHelmets = new int[] {ItemID.CactusHelmet}, validChests = new int[] {ItemID.CactusBreastplate}, validGreaves = new int[] {ItemID.CactusLeggings}, maxXP = ModContent.GetInstance<ArmorSetConfig>().CactusEXP, textR = 120, textG = 250, textB = 120, bonusWeapons = new int[] {ItemID.CactusPickaxe, ItemID.CactusSword}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnableCactus}},
 				{ArmorSet.Pumpkin, new ArmorSetParameters {validHelmets = new int[] {ItemID.PumpkinHelmet}, validChests = new int[] {ItemID.PumpkinBreastplate}, validGreaves = new int[] {ItemID.PumpkinLeggings}, maxXP = ModContent.GetInstance<ArmorSetConfig>().PumpkinEXP, textR = 200, textG = 150, textB = 100, bonusWeapons = new int[] {ItemID.TheHorsemansBlade, ItemID.JackOLanternLauncher}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnablePumpkin}},
-				{ArmorSet.Ninja, new ArmorSetParameters {validHelmets = new int[] {ItemID.NinjaHood}, validChests = new int[] {ItemID.NinjaShirt}, validGreaves = new int[] {ItemID.NinjaPants}, maxXP = ModContent.GetInstance<ArmorSetConfig>().NinjaEXP, textR = 190, textG = 190, textB = 200, bonusWeapons = new int[] {ItemID.SlimeGun, ItemID.SlimeStaff, ItemID.Shuriken, ItemID.Katana}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnableNinja}}
+				{ArmorSet.Ninja, new ArmorSetParameters {validHelmets = new int[] {ItemID.NinjaHood}, validChests = new int[] {ItemID.NinjaShirt}, validGreaves = new int[] {ItemID.NinjaPants}, maxXP = ModContent.GetInstance<ArmorSetConfig>().NinjaEXP, textR = 190, textG = 190, textB = 200, bonusWeapons = new int[] {ItemID.SlimeGun, ItemID.SlimeStaff, ItemID.Shuriken, ItemID.Katana}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnableNinja}},
+				{ArmorSet.Wizard, new ArmorSetParameters {validHelmets = new int[] {ItemID.WizardHat, ItemID.MagicHat}, validChests = new int[] {ItemID.AmethystRobe, ItemID.TopazRobe, ItemID.SapphireRobe, ItemID.EmeraldRobe, ItemID.RubyRobe, ItemID.AmberRobe, ItemID.DiamondRobe, ItemID.GypsyRobe}, validGreaves = new int[] {}, maxXP = ModContent.GetInstance<ArmorSetConfig>().WizardEXP, textR = 250, textG = 250, textB = 250, bonusWeapons = new int[] {ItemID.AmethystStaff, ItemID.TopazStaff, ItemID.SapphireStaff, ItemID.EmeraldStaff, ItemID.RubyStaff, ItemID.AmberStaff, ItemID.DiamondStaff}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnableWizard}}
 			};
 		}
 
@@ -110,7 +112,7 @@ namespace PermanentSetBonuses.Content
 					Main.NewText("No armor set is equipped.");
 				} else
 				{
-					Main.NewText(setXP[(int)armorSet] + " / " + maxXP + " EXP to master", textR, textG, textB);
+					Main.NewText(setXP[(int)armorSet] + " / " + maxXP + " EXP to master " + armorSet, textR, textG, textB);
 				}
 			}
 		}
@@ -160,7 +162,7 @@ namespace PermanentSetBonuses.Content
 		{
 			ArmorSet? newSet = null;
 			bool newExpBonus = false;
-			Player player = Main.LocalPlayer;
+			//Player player = Main.LocalPlayer;
 			if (armorData == null)
 			{
 				armorData = InitialArmorData();
@@ -179,7 +181,7 @@ namespace PermanentSetBonuses.Content
 				{
 					foreach (int helmet in setParams.validHelmets)
 					{
-						if (helmet == player.armor[0].type)
+						if (helmet == Player.armor[0].type)
 						{
 							headMatch = true;
 							break;
@@ -193,7 +195,7 @@ namespace PermanentSetBonuses.Content
 				{
 					foreach (int chest in setParams.validChests)
 					{
-						if (chest == player.armor[1].type)
+						if (chest == Player.armor[1].type)
 						{
 							chestMatch = true;
 							break;
@@ -207,7 +209,7 @@ namespace PermanentSetBonuses.Content
 				{
 					foreach (int legs in setParams.validGreaves)
 					{
-						if (legs == player.armor[2].type)
+						if (legs == Player.armor[2].type)
 						{
 							legsMatch = true;
 							break;
@@ -233,7 +235,7 @@ namespace PermanentSetBonuses.Content
 			{
 				foreach (int weapon in armorData[newSet ?? ArmorSet.Wood].bonusWeapons)
 				{
-					if (weapon == player.HeldItem.type)
+					if (weapon == Player.HeldItem.type)
 					{
 						newExpBonus = true;
 						break;
@@ -461,27 +463,27 @@ namespace PermanentSetBonuses.Content
 				case ArmorSet.RichMahogany:
 				case ArmorSet.Ebonwood:
 				case ArmorSet.Shadewood:
-					Main.LocalPlayer.statDefense += 1;
+					Player.statDefense += 1;
 					break;
 				case ArmorSet.Copper:
 				case ArmorSet.Tin:
 				case ArmorSet.Iron:
-					Main.LocalPlayer.statDefense += 2;
+					Player.statDefense += 2;
 					break;
 				case ArmorSet.Lead:
 				case ArmorSet.Silver:
 				case ArmorSet.Tungsten:
 				case ArmorSet.Gold:
-					Main.LocalPlayer.statDefense += 3;
+					Player.statDefense += 3;
 					break;
 				case ArmorSet.Platinum:
-					Main.LocalPlayer.statDefense += 4;
+					Player.statDefense += 4;
 					break;
 				case ArmorSet.Pumpkin:
-					Main.LocalPlayer.GetDamage<GenericDamageClass>() += 0.1f;
+					Player.GetDamage<GenericDamageClass>() += 0.1f;
 					break;
 				case ArmorSet.Ninja:
-					Main.LocalPlayer.moveSpeed += 0.2f;
+					Player.moveSpeed += 0.2f;
 					break;
 			}
 		}//end ApplyBuff
@@ -567,10 +569,22 @@ namespace PermanentSetBonuses.Content
 				}
 				//Not sure about knockback or direction here.
 				Main.player[Player.whoAmI].ApplyDamageToNPC(npc, damage, 0f, -1, false);
+				//Could rewrite as Player.ApplyDamageToNPC maybe?
 			}
-
-
 		}//end OnHitByNPC
+
+		public override void ModifyMaxStats(out StatModifier health, out StatModifier mana)
+		{
+			base.ModifyMaxStats(out health, out mana);
+			if (activeSets == null)
+			{
+				return;
+			}
+			if (activeSets[(int)ArmorSet.Wizard])
+			{
+				mana.Base += 60;
+			}
+		}//end ModifyMaxStats
 
 		public override void SaveData(TagCompound tag)
 		{

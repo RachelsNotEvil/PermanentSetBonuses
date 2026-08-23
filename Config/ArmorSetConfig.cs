@@ -225,10 +225,23 @@ namespace PermanentSetBonuses.Config
 		public bool EnableNinja;
 
 		[Label("Ninja EXP Required")]
-		[Tooltip("Amount of experience required to master the Ninja armor set.\nDefault 1600")]
+		[Tooltip("Amount of experience required to master the Ninja armor set.\nDefault 1600.")]
 		[Range(0, 65535)]
 		[DefaultValue(1600)]
 		[ReloadRequired]
 		public int NinjaEXP;
+
+		[Label("Enable Wizard")]
+		[Tooltip("Allow players to gain experience for and master wizard armor.")]
+		[DefaultValue(true)]
+		[ReloadRequired]
+		public bool EnableWizard;
+
+		[Label("Wizard EXP Required")]
+		[Tooltip("Amount of experience required to master the Wizard armor set.\nDefault 850.")]
+		[Range(0, 65535)]
+		[DefaultValue(850)]
+		[ReloadRequired]
+		public int WizardEXP;
 	}//end class ArmorSetConfig
 }//end namespace PermanentSetBonuses.Config
