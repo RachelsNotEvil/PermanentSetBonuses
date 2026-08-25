@@ -321,5 +321,18 @@ namespace PermanentSetBonuses.Config
 		[DefaultValue(2500)]
 		[ReloadRequired]
 		public int GladiatorEXP;
+
+		[Label("Enable Jungle")]
+		[Tooltip("Allow players to gain experience for and master jungle armor.")]
+		[DefaultValue(true)]
+		[ReloadRequired]
+		public bool EnableJungle;
+
+		[Label("Jungle EXP Required")]
+		[Tooltip("Amount of experience required to master the Jungle armor set.\nDefault 2600.")]
+		[Range(0, 65535)]
+		[DefaultVlue(2600)]
+		[ReloadRequired]
+		public int JungleEXP;
 	}//end class ArmorSetConfig
 }//end namespace PermanentSetBonuses.Config
