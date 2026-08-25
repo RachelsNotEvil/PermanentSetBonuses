@@ -30,7 +30,8 @@ namespace PermanentSetBonuses.Content
 		Ninja,
 		Wizard,
 		Fossil,
-		Meteor
+		Meteor,
+		Shadow
 	}
 
 	public struct ArmorSetParameters
@@ -103,7 +104,8 @@ namespace PermanentSetBonuses.Content
 				{ArmorSet.Ninja, new ArmorSetParameters {validHelmets = new int[] {ItemID.NinjaHood}, validChests = new int[] {ItemID.NinjaShirt}, validGreaves = new int[] {ItemID.NinjaPants}, maxXP = ModContent.GetInstance<ArmorSetConfig>().NinjaEXP, textR = 190, textG = 190, textB = 200, bonusWeapons = new int[] {ItemID.SlimeGun, ItemID.SlimeStaff, ItemID.Shuriken, ItemID.Katana}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnableNinja}},
 				{ArmorSet.Wizard, new ArmorSetParameters {validHelmets = new int[] {ItemID.WizardHat, ItemID.MagicHat}, validChests = new int[] {ItemID.AmethystRobe, ItemID.TopazRobe, ItemID.SapphireRobe, ItemID.EmeraldRobe, ItemID.RubyRobe, ItemID.AmberRobe, ItemID.DiamondRobe, ItemID.GypsyRobe}, validGreaves = new int[] {}, maxXP = ModContent.GetInstance<ArmorSetConfig>().WizardEXP, textR = 250, textG = 250, textB = 250, bonusWeapons = new int[] {ItemID.AmethystStaff, ItemID.TopazStaff, ItemID.SapphireStaff, ItemID.EmeraldStaff, ItemID.RubyStaff, ItemID.AmberStaff, ItemID.DiamondStaff}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnableWizard}},
 				{ArmorSet.Fossil, new ArmorSetParameters {validHelmets = new int[] {ItemID.FossilHelm}, validChests = new int[] {ItemID.FossilShirt}, validGreaves = new int[] {ItemID.FossilPants}, maxXP = ModContent.GetInstance<ArmorSetConfig>().FossilEXP, textR = 200, textG = 170, textB = 100, bonusWeapons = new int[] {ItemID.AmberStaff, ItemID.BoneJavelin, ItemID.BoneDagger, ItemID.FossilPickaxe}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnableFossil}},
-				{ArmorSet.Meteor, new ArmorSetParameters {validHelmets = new int[] {ItemID.MeteorHelmet}, validChests = new int[] {ItemID.MeteorSuit}, validGreaves = new int[] {ItemID.MeteorLeggings}, maxXP = ModContent.GetInstance<ArmorSetConfig>().MeteorEXP, textR = 255, textG = 126, textB = 9, bonusWeapons = new int[] {ItemID.BluePhaseblade, ItemID.GreenPhaseblade, ItemID.MeteorHamaxe, ItemID.MeteorStaff, ItemID.OrangePhaseblade, ItemID.PurplePhaseblade, ItemID.RedPhaseblade, ItemID.SpaceGun, ItemID.StarCannon, ItemID.WhitePhaseblade, ItemID.YellowPhaseblade}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnableMeteor}}
+				{ArmorSet.Meteor, new ArmorSetParameters {validHelmets = new int[] {ItemID.MeteorHelmet}, validChests = new int[] {ItemID.MeteorSuit}, validGreaves = new int[] {ItemID.MeteorLeggings}, maxXP = ModContent.GetInstance<ArmorSetConfig>().MeteorEXP, textR = 255, textG = 126, textB = 9, bonusWeapons = new int[] {ItemID.BluePhaseblade, ItemID.GreenPhaseblade, ItemID.MeteorHamaxe, ItemID.MeteorStaff, ItemID.OrangePhaseblade, ItemID.PurplePhaseblade, ItemID.RedPhaseblade, ItemID.SpaceGun, ItemID.StarCannon, ItemID.WhitePhaseblade, ItemID.YellowPhaseblade}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnableMeteor}},
+				{ArmorSet.Shadow, new ArmorSetParameters {validHelmets = new int[] {ItemID.ShadowHelmet, ItemID.AncientShadowHelmet}, validChests = new int[] {ItemID.ShadowScalemail, ItemID.AncientShadowScalemail}, validGreaves = new int[] {ItemID.ShadowGreaves, ItemID.AncientShadowGreaves}, maxXP = ModContent.GetInstance<ArmorSetConfig>().ShadowEXP, textR = 140, textG = 70, textB = 255, bonusWeapons = new int[] {ItemID.NightmarePickaxe, ItemID.TheBreaker, ItemID.DemonBow, ItemID.LightsBane, ItemID.CorruptYoyo, ItemID.WarAxeoftheNight, ItemID.Musket, ItemID.Vilethorn, ItemID.BallOHurt}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnableShadow}}
 			};
 		}
 
@@ -495,6 +497,12 @@ namespace PermanentSetBonuses.Content
 				case ArmorSet.Meteor:
 					Player.spaceGun = true;
 					break;
+				case ArmorSet.Shadow:
+					Player.runAcceleration *= 1.75f;
+					Player.maxRunSpeed *= 1.15f;
+					Player.accRunSpeed *= 1.15f;
+					Player.runSlowdown *= 1.75f;
+					break;
 			}
 		}//end ApplyBuff
 
@@ -568,6 +576,10 @@ namespace PermanentSetBonuses.Content
 			if (activeSets[(int)ArmorSet.Meteor])
 			{
 				ApplyBuff(ArmorSet.Meteor);
+			}
+			if (activeSets[(int)ArmorSet.Shadow] && !Player.pulley && Player.grappling[0] == 1 && !Player.tongued)
+			{
+				ApplyBuff(ArmorSet.Shadow);
 			}
 		}//end PostUpdateMiscEffects
 

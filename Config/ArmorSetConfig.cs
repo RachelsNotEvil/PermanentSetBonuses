@@ -204,6 +204,19 @@ namespace PermanentSetBonuses.Config
 		[ReloadRequired]
 		public int MeteorEXP;
 
+		[Label("Enable Shadow")]
+		[Tooltip("Allow players to gain experience for and master shadow armor.")]
+		[DefaultValue(true)]
+		[ReloadRequired]
+		public bool EnableShadow;
+
+		[Label("Shadow EXP Required")]
+		[Tooltip("Amount of experience required to master the Shadow armor set.\nDefault 4000.")]
+		[Range(0,65535)]
+		[DefaultValue(4000)]
+		[ReloadRequired]
+		public int ShadowEXP;
+
 		[Header("OtherPreHardmode")]
 		[Label("Enable Cactus")]
 		[Tooltip("Allow players to gain experience for and master cactus armor.")]

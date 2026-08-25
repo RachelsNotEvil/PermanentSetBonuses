@@ -289,5 +289,19 @@ Configs: {
 				Default 3000.
 				'''
 		}
+
+		EnableShadow: {
+			Label: Enable Shadow
+			Tooltip: Allow players to gain experience for and master shadow armor.
+		}
+
+		ShadowEXP: {
+			Label: Shadow EXP Required
+			Tooltip:
+				'''
+				Amount of experience required to master the Shadow armor set.
+				Default 4000.
+				'''
+		}
 	}
 }
