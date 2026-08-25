@@ -217,6 +217,19 @@ namespace PermanentSetBonuses.Config
 		[ReloadRequired]
 		public int ShadowEXP;
 
+		[Label("Enable Crimson")]
+		[Tooltip("Allow players to gain experience for and master Crimson armor.")]
+		[DefaultValue(true)]
+		[ReloadRequired]
+		public bool EnableCrimson;
+
+		[Label("Crimson EXP Required")]
+		[Tooltip("Amount of experience required to master the Crimson armor set.\nDefault 4000.")]
+		[Range(0, 65535)]
+		[DefaultValue(4000)]
+		[ReloadRequired]
+		public int CrimsonEXP;
+
 		[Header("OtherPreHardmode")]
 		[Label("Enable Cactus")]
 		[Tooltip("Allow players to gain experience for and master cactus armor.")]

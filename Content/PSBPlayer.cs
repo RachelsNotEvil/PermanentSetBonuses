@@ -6,6 +6,7 @@ using Terraria.GameInput;
 using PermanentSetBonuses.IO;
 using System.Collections.Generic;
 using PermanentSetBonuses.Config;
+using System;
 
 namespace PermanentSetBonuses.Content
 {
@@ -31,7 +32,8 @@ namespace PermanentSetBonuses.Content
 		Wizard,
 		Fossil,
 		Meteor,
-		Shadow
+		Shadow,
+		Crimson
 	}
 
 	public struct ArmorSetParameters
@@ -105,7 +107,8 @@ namespace PermanentSetBonuses.Content
 				{ArmorSet.Wizard, new ArmorSetParameters {validHelmets = new int[] {ItemID.WizardHat, ItemID.MagicHat}, validChests = new int[] {ItemID.AmethystRobe, ItemID.TopazRobe, ItemID.SapphireRobe, ItemID.EmeraldRobe, ItemID.RubyRobe, ItemID.AmberRobe, ItemID.DiamondRobe, ItemID.GypsyRobe}, validGreaves = new int[] {}, maxXP = ModContent.GetInstance<ArmorSetConfig>().WizardEXP, textR = 250, textG = 250, textB = 250, bonusWeapons = new int[] {ItemID.AmethystStaff, ItemID.TopazStaff, ItemID.SapphireStaff, ItemID.EmeraldStaff, ItemID.RubyStaff, ItemID.AmberStaff, ItemID.DiamondStaff}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnableWizard}},
 				{ArmorSet.Fossil, new ArmorSetParameters {validHelmets = new int[] {ItemID.FossilHelm}, validChests = new int[] {ItemID.FossilShirt}, validGreaves = new int[] {ItemID.FossilPants}, maxXP = ModContent.GetInstance<ArmorSetConfig>().FossilEXP, textR = 200, textG = 170, textB = 100, bonusWeapons = new int[] {ItemID.AmberStaff, ItemID.BoneJavelin, ItemID.BoneDagger, ItemID.FossilPickaxe}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnableFossil}},
 				{ArmorSet.Meteor, new ArmorSetParameters {validHelmets = new int[] {ItemID.MeteorHelmet}, validChests = new int[] {ItemID.MeteorSuit}, validGreaves = new int[] {ItemID.MeteorLeggings}, maxXP = ModContent.GetInstance<ArmorSetConfig>().MeteorEXP, textR = 255, textG = 126, textB = 9, bonusWeapons = new int[] {ItemID.BluePhaseblade, ItemID.GreenPhaseblade, ItemID.MeteorHamaxe, ItemID.MeteorStaff, ItemID.OrangePhaseblade, ItemID.PurplePhaseblade, ItemID.RedPhaseblade, ItemID.SpaceGun, ItemID.StarCannon, ItemID.WhitePhaseblade, ItemID.YellowPhaseblade}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnableMeteor}},
-				{ArmorSet.Shadow, new ArmorSetParameters {validHelmets = new int[] {ItemID.ShadowHelmet, ItemID.AncientShadowHelmet}, validChests = new int[] {ItemID.ShadowScalemail, ItemID.AncientShadowScalemail}, validGreaves = new int[] {ItemID.ShadowGreaves, ItemID.AncientShadowGreaves}, maxXP = ModContent.GetInstance<ArmorSetConfig>().ShadowEXP, textR = 140, textG = 70, textB = 255, bonusWeapons = new int[] {ItemID.NightmarePickaxe, ItemID.TheBreaker, ItemID.DemonBow, ItemID.LightsBane, ItemID.CorruptYoyo, ItemID.WarAxeoftheNight, ItemID.Musket, ItemID.Vilethorn, ItemID.BallOHurt}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnableShadow}}
+				{ArmorSet.Shadow, new ArmorSetParameters {validHelmets = new int[] {ItemID.ShadowHelmet, ItemID.AncientShadowHelmet}, validChests = new int[] {ItemID.ShadowScalemail, ItemID.AncientShadowScalemail}, validGreaves = new int[] {ItemID.ShadowGreaves, ItemID.AncientShadowGreaves}, maxXP = ModContent.GetInstance<ArmorSetConfig>().ShadowEXP, textR = 140, textG = 70, textB = 255, bonusWeapons = new int[] {ItemID.NightmarePickaxe, ItemID.TheBreaker, ItemID.DemonBow, ItemID.LightsBane, ItemID.CorruptYoyo, ItemID.WarAxeoftheNight, ItemID.Musket, ItemID.Vilethorn, ItemID.BallOHurt}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnableShadow}},
+				{ArmorSet.Crimson, new ArmorSetParameters {validHelmets = new int[] {ItemID.CrimsonHelmet}, validChests = new int[] {ItemID.CrimsonScalemail}, validGreaves = new int[] {ItemID.CrimsonGreaves}, maxXP = ModContent.GetInstance<ArmorSetConfig>().CrimsonEXP, textR = 255, textG = 100, textB = 100, bonusWeapons = new int[] {ItemID.CrimsonYoyo, ItemID.BloodButcherer, ItemID.BloodLustCluster, ItemID.DeathbringerPickaxe, ItemID.FleshGrinder, ItemID.TendonBow, ItemID.TheMeatball, ItemID.TheUndertaker, ItemID.CrimsonRod, ItemID.TheRottedFork}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnableCrimson}}
 			};
 		}
 
@@ -503,6 +506,15 @@ namespace PermanentSetBonuses.Content
 					Player.accRunSpeed *= 1.15f;
 					Player.runSlowdown *= 1.75f;
 					break;
+				case ArmorSet.Crimson:
+					//Life regen is complicated and I'm not sure how to properly recreate it,
+					//So here's my best guess
+					Player.lifeRegenTime += 1f;
+					if (Player.lifeRegen > 0f)
+					{
+						Player.lifeRegen = (int)Math.Round((float)Player.lifeRegen * 1.5f);
+					}
+					break;
 			}
 		}//end ApplyBuff
 
@@ -580,6 +592,10 @@ namespace PermanentSetBonuses.Content
 			if (activeSets[(int)ArmorSet.Shadow] && !Player.pulley && Player.grappling[0] == 1 && !Player.tongued)
 			{
 				ApplyBuff(ArmorSet.Shadow);
+			}
+			if (activeSets[(int)ArmorSet.Crimson])
+			{
+				ApplyBuff(ArmorSet.Crimson);
 			}
 		}//end PostUpdateMiscEffects
 
