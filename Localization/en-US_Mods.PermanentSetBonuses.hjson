@@ -345,5 +345,19 @@ Configs: {
 				Default 2500.
 				'''
 		}
+
+		EnableJungle: {
+			Label: Enable Jungle
+			Tooltip: Allow players to gain experience for and master jungle armor.
+		}
+
+		JungleEXP: {
+			Label: Jungle EXP Required
+			Tooltip:
+				'''
+				Amount of experience required to master the Jungle armor set.
+				Default 2600.
+				'''
+		}
 	}
 }

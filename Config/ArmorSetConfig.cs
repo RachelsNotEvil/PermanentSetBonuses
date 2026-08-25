@@ -331,7 +331,7 @@ namespace PermanentSetBonuses.Config
 		[Label("Jungle EXP Required")]
 		[Tooltip("Amount of experience required to master the Jungle armor set.\nDefault 2600.")]
 		[Range(0, 65535)]
-		[DefaultVlue(2600)]
+		[DefaultValue(2600)]
 		[ReloadRequired]
 		public int JungleEXP;
 	}//end class ArmorSetConfig

@@ -35,7 +35,8 @@ namespace PermanentSetBonuses.Content
 		Shadow,
 		Crimson,
 		AshWood,
-		Gladiator
+		Gladiator,
+		Jungle
 	}
 
 	public struct ArmorSetParameters
@@ -88,7 +89,7 @@ namespace PermanentSetBonuses.Content
 		public Dictionary<ArmorSet, ArmorSetParameters> InitialArmorData()
 		{
 			//Create a reference to the ArmorSetConfig here instead of constantly retrieving it
-			ArmorSetConfig armorSettings = ModContent.GetInstance<ArmorSetConfig>()
+			ArmorSetConfig armorSettings = ModContent.GetInstance<ArmorSetConfig>();
 			return new Dictionary<ArmorSet, ArmorSetParameters>()
 			{
 				{ArmorSet.Wood, new ArmorSetParameters { validHelmets = new int[] {ItemID.WoodHelmet}, validChests = new int[] {ItemID.WoodBreastplate}, validGreaves = new int[] {ItemID.WoodGreaves}, maxXP = armorSettings.WoodEXP, textR = 151, textG = 107, textB = 75, bonusWeapons = new int[] {ItemID.WoodenSword, ItemID.WoodenBow, ItemID.WoodenHammer, ItemID.WoodYoyo}, enabled = armorSettings.EnableWood}},
@@ -114,7 +115,8 @@ namespace PermanentSetBonuses.Content
 				{ArmorSet.Shadow, new ArmorSetParameters {validHelmets = new int[] {ItemID.ShadowHelmet, ItemID.AncientShadowHelmet}, validChests = new int[] {ItemID.ShadowScalemail, ItemID.AncientShadowScalemail}, validGreaves = new int[] {ItemID.ShadowGreaves, ItemID.AncientShadowGreaves}, maxXP = armorSettings.ShadowEXP, textR = 140, textG = 70, textB = 255, bonusWeapons = new int[] {ItemID.NightmarePickaxe, ItemID.TheBreaker, ItemID.DemonBow, ItemID.LightsBane, ItemID.CorruptYoyo, ItemID.WarAxeoftheNight, ItemID.Musket, ItemID.Vilethorn, ItemID.BallOHurt}, enabled = armorSettings.EnableShadow}},
 				{ArmorSet.Crimson, new ArmorSetParameters {validHelmets = new int[] {ItemID.CrimsonHelmet}, validChests = new int[] {ItemID.CrimsonScalemail}, validGreaves = new int[] {ItemID.CrimsonGreaves}, maxXP = armorSettings.CrimsonEXP, textR = 255, textG = 100, textB = 100, bonusWeapons = new int[] {ItemID.CrimsonYoyo, ItemID.BloodButcherer, ItemID.BloodLustCluster, ItemID.DeathbringerPickaxe, ItemID.FleshGrinder, ItemID.TendonBow, ItemID.TheMeatball, ItemID.TheUndertaker, ItemID.CrimsonRod, ItemID.TheRottedFork}, enabled = armorSettings.EnableCrimson}},
 				{ArmorSet.AshWood, new ArmorSetParameters {validHelmets = new int[] {ItemID.AshWoodHelmet}, validChests = new int[] {ItemID.AshWoodBreastplate}, validGreaves = new int[] {ItemID.AshWoodGreaves}, maxXP = armorSettings.AshWoodEXP, textR = 200, textG = 180, textB = 190, bonusWeapons = new int[] {ItemID.AshWoodBow, ItemID.AshWoodHammer, ItemID.AshWoodSword}, enabled = armorSettings.EnableAshWood}},
-				{ArmorSet.Gladiator, new ArmorSetParameters {validHelmets = new int[] {ItemID.GladiatorHelmet}, validChests = new int[] {ItemID.GladiatorBreastplate}, validGreaves = new int[] {ItemID.GladiatorLeggings}, maxXP = armorSettings.GladiatorEXP, textR = 200, textG = 70, textB = 80, bonusWeapons = new int[] {ItemID.Javelin, ItemID.Gladius}, enabled = armorSettings.EnableGladiator}}
+				{ArmorSet.Gladiator, new ArmorSetParameters {validHelmets = new int[] {ItemID.GladiatorHelmet}, validChests = new int[] {ItemID.GladiatorBreastplate}, validGreaves = new int[] {ItemID.GladiatorLeggings}, maxXP = armorSettings.GladiatorEXP, textR = 200, textG = 70, textB = 80, bonusWeapons = new int[] {ItemID.Javelin, ItemID.Gladius}, enabled = armorSettings.EnableGladiator}},
+				{ArmorSet.Jungle, new ArmorSetParameters {validHelmets = new int[] {ItemID.JungleHat, ItemID.AncientCobaltHelmet}, validChests = new int[] {ItemID.JungleShirt, ItemID.AncientCobaltBreastplate}, validGreaves = new int[] {ItemID.JunglePants, ItemID.AncientCobaltLeggings}, maxXP = armorSettings.JungleEXP, textR = 45, textG = 200, textB = 56, bonusWeapons = new int[] {ItemID.JungleYoyo, ItemID.AcornAxe, ItemID.BladeofGrass, ItemID.ThornWhip, ItemID.ThornChakram, ItemID.PoisonDart}, enabled = armorSettings.EnableJungle}}
 			};
 		}
 
@@ -528,6 +530,9 @@ namespace PermanentSetBonuses.Content
 				case ArmorSet.Gladiator:
 					Player.noKnockback = true;
 					break;
+				case ArmorSet.Jungle:
+					Player.manaCost -= 0.16f;
+					break;
 			}
 		}//end ApplyBuff
 
@@ -617,6 +622,10 @@ namespace PermanentSetBonuses.Content
 			if (activeSets[(int)ArmorSet.Gladiator])
 			{
 				ApplyBuff(ArmorSet.Gladiator);
+			}
+			if (activeSets[(int)ArmorSet.Jungle])
+			{
+				ApplyBuff(ArmorSet.Jungle);
 			}
 		}//end PostUpdateMiscEffects
 
