@@ -33,7 +33,9 @@ namespace PermanentSetBonuses.Content
 		Fossil,
 		Meteor,
 		Shadow,
-		Crimson
+		Crimson,
+		AshWood,
+		Gladiator
 	}
 
 	public struct ArmorSetParameters
@@ -85,6 +87,7 @@ namespace PermanentSetBonuses.Content
 
 		public Dictionary<ArmorSet, ArmorSetParameters> InitialArmorData()
 		{
+			//Create a reference to the ArmorSetConfig here instead of constantly retrieving it
 			return new Dictionary<ArmorSet, ArmorSetParameters>()
 			{
 				{ArmorSet.Wood, new ArmorSetParameters { validHelmets = new int[] {ItemID.WoodHelmet}, validChests = new int[] {ItemID.WoodBreastplate}, validGreaves = new int[] {ItemID.WoodGreaves}, maxXP = ModContent.GetInstance<ArmorSetConfig>().WoodEXP, textR = 151, textG = 107, textB = 75, bonusWeapons = new int[] {ItemID.WoodenSword, ItemID.WoodenBow, ItemID.WoodenHammer, ItemID.WoodYoyo}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnableWood}},
@@ -108,7 +111,9 @@ namespace PermanentSetBonuses.Content
 				{ArmorSet.Fossil, new ArmorSetParameters {validHelmets = new int[] {ItemID.FossilHelm}, validChests = new int[] {ItemID.FossilShirt}, validGreaves = new int[] {ItemID.FossilPants}, maxXP = ModContent.GetInstance<ArmorSetConfig>().FossilEXP, textR = 200, textG = 170, textB = 100, bonusWeapons = new int[] {ItemID.AmberStaff, ItemID.BoneJavelin, ItemID.BoneDagger, ItemID.FossilPickaxe}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnableFossil}},
 				{ArmorSet.Meteor, new ArmorSetParameters {validHelmets = new int[] {ItemID.MeteorHelmet}, validChests = new int[] {ItemID.MeteorSuit}, validGreaves = new int[] {ItemID.MeteorLeggings}, maxXP = ModContent.GetInstance<ArmorSetConfig>().MeteorEXP, textR = 255, textG = 126, textB = 9, bonusWeapons = new int[] {ItemID.BluePhaseblade, ItemID.GreenPhaseblade, ItemID.MeteorHamaxe, ItemID.MeteorStaff, ItemID.OrangePhaseblade, ItemID.PurplePhaseblade, ItemID.RedPhaseblade, ItemID.SpaceGun, ItemID.StarCannon, ItemID.WhitePhaseblade, ItemID.YellowPhaseblade}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnableMeteor}},
 				{ArmorSet.Shadow, new ArmorSetParameters {validHelmets = new int[] {ItemID.ShadowHelmet, ItemID.AncientShadowHelmet}, validChests = new int[] {ItemID.ShadowScalemail, ItemID.AncientShadowScalemail}, validGreaves = new int[] {ItemID.ShadowGreaves, ItemID.AncientShadowGreaves}, maxXP = ModContent.GetInstance<ArmorSetConfig>().ShadowEXP, textR = 140, textG = 70, textB = 255, bonusWeapons = new int[] {ItemID.NightmarePickaxe, ItemID.TheBreaker, ItemID.DemonBow, ItemID.LightsBane, ItemID.CorruptYoyo, ItemID.WarAxeoftheNight, ItemID.Musket, ItemID.Vilethorn, ItemID.BallOHurt}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnableShadow}},
-				{ArmorSet.Crimson, new ArmorSetParameters {validHelmets = new int[] {ItemID.CrimsonHelmet}, validChests = new int[] {ItemID.CrimsonScalemail}, validGreaves = new int[] {ItemID.CrimsonGreaves}, maxXP = ModContent.GetInstance<ArmorSetConfig>().CrimsonEXP, textR = 255, textG = 100, textB = 100, bonusWeapons = new int[] {ItemID.CrimsonYoyo, ItemID.BloodButcherer, ItemID.BloodLustCluster, ItemID.DeathbringerPickaxe, ItemID.FleshGrinder, ItemID.TendonBow, ItemID.TheMeatball, ItemID.TheUndertaker, ItemID.CrimsonRod, ItemID.TheRottedFork}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnableCrimson}}
+				{ArmorSet.Crimson, new ArmorSetParameters {validHelmets = new int[] {ItemID.CrimsonHelmet}, validChests = new int[] {ItemID.CrimsonScalemail}, validGreaves = new int[] {ItemID.CrimsonGreaves}, maxXP = ModContent.GetInstance<ArmorSetConfig>().CrimsonEXP, textR = 255, textG = 100, textB = 100, bonusWeapons = new int[] {ItemID.CrimsonYoyo, ItemID.BloodButcherer, ItemID.BloodLustCluster, ItemID.DeathbringerPickaxe, ItemID.FleshGrinder, ItemID.TendonBow, ItemID.TheMeatball, ItemID.TheUndertaker, ItemID.CrimsonRod, ItemID.TheRottedFork}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnableCrimson}},
+				{ArmorSet.AshWood, new ArmorSetParameters {validHelmets = new int[] {ItemID.AshWoodHelmet}, validChests = new int[] {ItemID.AshWoodBreastplate}, validGreaves = new int[] {ItemID.AshWoodGreaves}, maxXP = ModContent.GetInstance<ArmorSetConfig>().AshWoodEXP, textR = 200, textG = 180, textB = 190, bonusWeapons = new int[] {ItemID.AshWoodBow, ItemID.AshWoodHammer, ItemID.AshWoodSword}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnableAshWood}},
+				{ArmorSet.Gladiator, new ArmorSetParameters {validHelmets = new int[] {ItemID.GladiatorHelmet}, validChests = new int[] {ItemID.GladiatorBreastplate}, validGreaves = new int[] {ItemID.GladiatorLeggings}, maxXP = ModContent.GetInstance<ArmorSetConfig>().GladiatorEXP, textR = 200, textG = 70, textB = 80, bonusWeapons = new int[] {ItemID.Javelin, ItemID.Gladius}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnableGladiator}}
 			};
 		}
 
@@ -515,6 +520,13 @@ namespace PermanentSetBonuses.Content
 						Player.lifeRegen = (int)Math.Round((float)Player.lifeRegen * 1.5f);
 					}
 					break;
+				case ArmorSet.AshWood:
+					//I don't understand enough to duplicate this so it stacks, unfortunately.
+					Player.ashWoodBonus = true;
+					break;
+				case ArmorSet.Gladiator:
+					Player.noKnockback = true;
+					break;
 			}
 		}//end ApplyBuff
 
@@ -596,6 +608,14 @@ namespace PermanentSetBonuses.Content
 			if (activeSets[(int)ArmorSet.Crimson])
 			{
 				ApplyBuff(ArmorSet.Crimson);
+			}
+			if (activeSets[(int)ArmorSet.AshWood])
+			{
+				ApplyBuff(ArmorSet.AshWood);
+			}
+			if (activeSets[(int)ArmorSet.Gladiator])
+			{
+				ApplyBuff(ArmorSet.Gladiator);
 			}
 		}//end PostUpdateMiscEffects
 

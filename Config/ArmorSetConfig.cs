@@ -86,6 +86,19 @@ namespace PermanentSetBonuses.Config
 		[ReloadRequired]
 		public int ShadeEXP;
 
+		[Label("Enable Ash Wood")]
+		[Tooltip("Allow players to gain experience for and master ash wood armor.")]
+		[DefaultValue(true)]
+		[ReloadRequired]
+		public bool EnableAshWood;
+
+		[Label("Ash Wood EXP Required")]
+		[Tooltip("Amount of experience required to master the Ash Wood armor set.\nDefault 880.")]
+		[Range(0, 65535)]
+		[DefaultValue(880)]
+		[ReloadRequired]
+		public int AshWoodEXP;
+
 		[Header("BasicOres")]
 		[Label("Enable Copper")]
 		[Tooltip("Allow players to gain experience for and master copper armor.")]
@@ -295,5 +308,18 @@ namespace PermanentSetBonuses.Config
 		[DefaultValue(950)]
 		[ReloadRequired]
 		public int FossilEXP;
+
+		[Label("Enable Gladiator")]
+		[Tooltip("Allow players to gain experience for and master gladiator armor.")]
+		[DefaultValue(true)]
+		[ReloadRequired]
+		public bool EnableGladiator;
+
+		[Label("Gladiator EXP Required")]
+		[Tooltip("Amount of experience required to master the Gladiator armor set.\nDefault 2500.")]
+		[Range(0, 65535)]
+		[DefaultValue(2500)]
+		[ReloadRequired]
+		public int GladiatorEXP;
 	}//end class ArmorSetConfig
 }//end namespace PermanentSetBonuses.Config

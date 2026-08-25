@@ -317,5 +317,33 @@ Configs: {
 				Default 4000.
 				'''
 		}
+
+		EnableAshWood: {
+			Label: Enable Ash Wood
+			Tooltip: Allow players to gain experience for and master ash wood armor.
+		}
+
+		AshWoodEXP: {
+			Label: Ash Wood EXP Required
+			Tooltip:
+				'''
+				Amount of experience required to master the Ash Wood armor set.
+				Default 880.
+				'''
+		}
+
+		EnableGladiator: {
+			Label: Enable Gladiator
+			Tooltip: Allow players to gain experience for and master gladiator armor.
+		}
+
+		GladiatorEXP: {
+			Label: Gladiator EXP Required
+			Tooltip:
+				'''
+				Amount of experience required to master the Gladiator armor set.
+				Default 2500.
+				'''
+		}
 	}
 }
