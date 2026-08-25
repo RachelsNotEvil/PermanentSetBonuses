@@ -275,5 +275,19 @@ Configs: {
 				Default 950.
 				'''
 		}
+
+		EnableMeteor: {
+			Label: Enable Meteor
+			Tooltip: Allow players to gain experience for and master meteor armor.
+		}
+
+		MeteorEXP: {
+			Label: Meteor EXP Required
+			Tooltip:
+				'''
+				Amount of experience required to master the Meteor armor set.
+				Default 3000.
+				'''
+		}
 	}
 }

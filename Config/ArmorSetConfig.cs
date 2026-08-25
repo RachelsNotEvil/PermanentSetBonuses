@@ -191,6 +191,19 @@ namespace PermanentSetBonuses.Config
 		[ReloadRequired]
 		public int PlatinumEXP;
 
+		[Label("Enable Meteor")]
+		[Tooltip("Allow players to gain experience for and master meteor armor.")]
+		[DefaultValue(true)]
+		[ReloadRequired]
+		public bool EnableMeteor;
+
+		[Label("Meteor EXP Required")]
+		[Tooltip("Amount of experience required to master the Meteor armor set.\nDefault 3000.")]
+		[Range(0, 65535)]
+		[DefaultValue(3000)]
+		[ReloadRequired]
+		public int MeteorEXP;
+
 		[Header("OtherPreHardmode")]
 		[Label("Enable Cactus")]
 		[Tooltip("Allow players to gain experience for and master cactus armor.")]

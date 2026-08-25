@@ -29,7 +29,8 @@ namespace PermanentSetBonuses.Content
 		Pumpkin,
 		Ninja,
 		Wizard,
-		Fossil
+		Fossil,
+		Meteor
 	}
 
 	public struct ArmorSetParameters
@@ -101,7 +102,8 @@ namespace PermanentSetBonuses.Content
 				{ArmorSet.Pumpkin, new ArmorSetParameters {validHelmets = new int[] {ItemID.PumpkinHelmet}, validChests = new int[] {ItemID.PumpkinBreastplate}, validGreaves = new int[] {ItemID.PumpkinLeggings}, maxXP = ModContent.GetInstance<ArmorSetConfig>().PumpkinEXP, textR = 200, textG = 150, textB = 100, bonusWeapons = new int[] {ItemID.TheHorsemansBlade, ItemID.JackOLanternLauncher}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnablePumpkin}},
 				{ArmorSet.Ninja, new ArmorSetParameters {validHelmets = new int[] {ItemID.NinjaHood}, validChests = new int[] {ItemID.NinjaShirt}, validGreaves = new int[] {ItemID.NinjaPants}, maxXP = ModContent.GetInstance<ArmorSetConfig>().NinjaEXP, textR = 190, textG = 190, textB = 200, bonusWeapons = new int[] {ItemID.SlimeGun, ItemID.SlimeStaff, ItemID.Shuriken, ItemID.Katana}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnableNinja}},
 				{ArmorSet.Wizard, new ArmorSetParameters {validHelmets = new int[] {ItemID.WizardHat, ItemID.MagicHat}, validChests = new int[] {ItemID.AmethystRobe, ItemID.TopazRobe, ItemID.SapphireRobe, ItemID.EmeraldRobe, ItemID.RubyRobe, ItemID.AmberRobe, ItemID.DiamondRobe, ItemID.GypsyRobe}, validGreaves = new int[] {}, maxXP = ModContent.GetInstance<ArmorSetConfig>().WizardEXP, textR = 250, textG = 250, textB = 250, bonusWeapons = new int[] {ItemID.AmethystStaff, ItemID.TopazStaff, ItemID.SapphireStaff, ItemID.EmeraldStaff, ItemID.RubyStaff, ItemID.AmberStaff, ItemID.DiamondStaff}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnableWizard}},
-				{ArmorSet.Fossil, new ArmorSetParameters {validHelmets = new int[] {ItemID.FossilHelm}, validChests = new int[] {ItemID.FossilShirt}, validGreaves = new int[] {ItemID.FossilPants}, maxXP = ModContent.GetInstance<ArmorSetConfig>().FossilEXP, textR = 200, textG = 170, textB = 100, bonusWeapons = new int[] {ItemID.AmberStaff, ItemID.BoneJavelin, ItemID.BoneDagger, ItemID.FossilPickaxe}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnableFossil}}
+				{ArmorSet.Fossil, new ArmorSetParameters {validHelmets = new int[] {ItemID.FossilHelm}, validChests = new int[] {ItemID.FossilShirt}, validGreaves = new int[] {ItemID.FossilPants}, maxXP = ModContent.GetInstance<ArmorSetConfig>().FossilEXP, textR = 200, textG = 170, textB = 100, bonusWeapons = new int[] {ItemID.AmberStaff, ItemID.BoneJavelin, ItemID.BoneDagger, ItemID.FossilPickaxe}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnableFossil}},
+				{ArmorSet.Meteor, new ArmorSetParameters {validHelmets = new int[] {ItemID.MeteorHelmet}, validChests = new int[] {ItemID.MeteorSuit}, validGreaves = new int[] {ItemID.MeteorLeggings}, maxXP = ModContent.GetInstance<ArmorSetConfig>().MeteorEXP, textR = 255, textG = 126, textB = 9, bonusWeapons = new int[] {ItemID.BluePhaseblade, ItemID.GreenPhaseblade, ItemID.MeteorHamaxe, ItemID.MeteorStaff, ItemID.OrangePhaseblade, ItemID.PurplePhaseblade, ItemID.RedPhaseblade, ItemID.SpaceGun, ItemID.StarCannon, ItemID.WhitePhaseblade, ItemID.YellowPhaseblade}, enabled = ModContent.GetInstance<ArmorSetConfig>().EnableMeteor}}
 			};
 		}
 
@@ -490,6 +492,9 @@ namespace PermanentSetBonuses.Content
 				case ArmorSet.Fossil:
 					Player.ammoCost80 = true;
 					break;
+				case ArmorSet.Meteor:
+					Player.spaceGun = true;
+					break;
 			}
 		}//end ApplyBuff
 
@@ -559,6 +564,10 @@ namespace PermanentSetBonuses.Content
 			if (activeSets[(int)ArmorSet.Fossil])
 			{
 				ApplyBuff(ArmorSet.Fossil);
+			}
+			if (activeSets[(int)ArmorSet.Meteor])
+			{
+				ApplyBuff(ArmorSet.Meteor);
 			}
 		}//end PostUpdateMiscEffects
 
