@@ -36,7 +36,8 @@ namespace PermanentSetBonuses.Content
 		Crimson,
 		AshWood,
 		Gladiator,
-		Jungle
+		Jungle,
+		Bee
 	}
 
 	public struct ArmorSetParameters
@@ -116,7 +117,8 @@ namespace PermanentSetBonuses.Content
 				{ArmorSet.Crimson, new ArmorSetParameters {validHelmets = new int[] {ItemID.CrimsonHelmet}, validChests = new int[] {ItemID.CrimsonScalemail}, validGreaves = new int[] {ItemID.CrimsonGreaves}, maxXP = armorSettings.CrimsonEXP, textR = 255, textG = 100, textB = 100, bonusWeapons = new int[] {ItemID.CrimsonYoyo, ItemID.BloodButcherer, ItemID.BloodLustCluster, ItemID.DeathbringerPickaxe, ItemID.FleshGrinder, ItemID.TendonBow, ItemID.TheMeatball, ItemID.TheUndertaker, ItemID.CrimsonRod, ItemID.TheRottedFork}, enabled = armorSettings.EnableCrimson}},
 				{ArmorSet.AshWood, new ArmorSetParameters {validHelmets = new int[] {ItemID.AshWoodHelmet}, validChests = new int[] {ItemID.AshWoodBreastplate}, validGreaves = new int[] {ItemID.AshWoodGreaves}, maxXP = armorSettings.AshWoodEXP, textR = 200, textG = 180, textB = 190, bonusWeapons = new int[] {ItemID.AshWoodBow, ItemID.AshWoodHammer, ItemID.AshWoodSword}, enabled = armorSettings.EnableAshWood}},
 				{ArmorSet.Gladiator, new ArmorSetParameters {validHelmets = new int[] {ItemID.GladiatorHelmet}, validChests = new int[] {ItemID.GladiatorBreastplate}, validGreaves = new int[] {ItemID.GladiatorLeggings}, maxXP = armorSettings.GladiatorEXP, textR = 200, textG = 70, textB = 80, bonusWeapons = new int[] {ItemID.Javelin, ItemID.Gladius}, enabled = armorSettings.EnableGladiator}},
-				{ArmorSet.Jungle, new ArmorSetParameters {validHelmets = new int[] {ItemID.JungleHat, ItemID.AncientCobaltHelmet}, validChests = new int[] {ItemID.JungleShirt, ItemID.AncientCobaltBreastplate}, validGreaves = new int[] {ItemID.JunglePants, ItemID.AncientCobaltLeggings}, maxXP = armorSettings.JungleEXP, textR = 45, textG = 200, textB = 56, bonusWeapons = new int[] {ItemID.JungleYoyo, ItemID.AcornAxe, ItemID.BladeofGrass, ItemID.ThornWhip, ItemID.ThornChakram, ItemID.PoisonDart}, enabled = armorSettings.EnableJungle}}
+				{ArmorSet.Jungle, new ArmorSetParameters {validHelmets = new int[] {ItemID.JungleHat, ItemID.AncientCobaltHelmet}, validChests = new int[] {ItemID.JungleShirt, ItemID.AncientCobaltBreastplate}, validGreaves = new int[] {ItemID.JunglePants, ItemID.AncientCobaltLeggings}, maxXP = armorSettings.JungleEXP, textR = 45, textG = 200, textB = 56, bonusWeapons = new int[] {ItemID.JungleYoyo, ItemID.AcornAxe, ItemID.BladeofGrass, ItemID.ThornWhip, ItemID.ThornChakram, ItemID.PoisonDart}, enabled = armorSettings.EnableJungle}},
+				{ArmorSet.Bee, new ArmorSetParameters {validHelmets = new int[] {ItemID.BeeHeadgear}, validChests = new int[] {ItemID.BeeBreastplate}, validGreaves = new int[] {ItemID.BeeGreaves}, maxXP = armorSettings.BeeEXP, textR = 170, textG = 170, textB = 90, bonusWeapons = new int[] {ItemID.HiveFive, ItemID.HornetStaff, ItemID.BeeGun, ItemID.BeeKeeper, ItemID.BeesKnees}, enabled = armorSettings.EnableBee}}
 			};
 		}
 
@@ -533,6 +535,9 @@ namespace PermanentSetBonuses.Content
 				case ArmorSet.Jungle:
 					Player.manaCost -= 0.16f;
 					break;
+				case ArmorSet.Bee:
+					Player.GetDamage<SummonDamageClass>() += 0.1f;
+					break;
 			}
 		}//end ApplyBuff
 
@@ -626,6 +631,10 @@ namespace PermanentSetBonuses.Content
 			if (activeSets[(int)ArmorSet.Jungle])
 			{
 				ApplyBuff(ArmorSet.Jungle);
+			}
+			if (activeSets[(int)ArmorSet.Bee])
+			{
+				ApplyBuff(ArmorSet.Bee);
 			}
 		}//end PostUpdateMiscEffects
 

@@ -334,5 +334,18 @@ namespace PermanentSetBonuses.Config
 		[DefaultValue(2600)]
 		[ReloadRequired]
 		public int JungleEXP;
+
+		[Label("Enable Bee")]
+		[Tooltip("Allow players to gain experience for and master bee armor.")]
+		[DefaultValue(true)]
+		[ReloadRequired]
+		public bool EnableBee;
+
+		[Label("Bee EXP Required")]
+		[Tooltip("Amount of experience required to master the Bee armor set.\nDefault 3200.")]
+		[Range(0, 65535)]
+		[DefaultValue(3200)]
+		[ReloadRequired]
+		public int BeeEXP;
 	}//end class ArmorSetConfig
 }//end namespace PermanentSetBonuses.Config
