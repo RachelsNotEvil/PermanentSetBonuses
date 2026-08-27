@@ -347,5 +347,17 @@ namespace PermanentSetBonuses.Config
 		[DefaultValue(3200)]
 		[ReloadRequired]
 		public int BeeEXP;
+
+		[Label("Enable Snow")]
+		[Tooltip("Allow players to gain experience for and master snow armor.")]
+		[DefaultValue(true)]
+		[ReloadRequired]
+		public bool EnableSnow;
+
+		[Label("Snow EXP Required")]
+		[Tooltip("Amount of experience required to master the Snow armor set.\nDefault 600.")]
+		[Range(0, 65535)]
+		[ReloadRequired]
+		public int SnowEXP;
 	}//end class ArmorSetConfig
 }//end namespace PermanentSetBonuses.Config

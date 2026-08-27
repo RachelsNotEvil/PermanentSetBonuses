@@ -373,5 +373,19 @@ Configs: {
 				Default 3200.
 				'''
 		}
+
+		EnableSnow: {
+			Label: Enable Snow
+			Tooltip: Allow players to gain experience for and master snow armor.
+		}
+
+		SnowEXP: {
+			Label: Snow EXP Required
+			Tooltip:
+				'''
+				Amount of experience required to master the Snow armor set.
+				Default 600.
+				'''
+		}
 	}
 }
