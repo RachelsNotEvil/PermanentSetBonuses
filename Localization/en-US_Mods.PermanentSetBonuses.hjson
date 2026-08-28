@@ -387,5 +387,19 @@ Configs: {
 				Default 600.
 				'''
 		}
+
+		EnableNecro: {
+			Label: Enable Necro
+			Tooltip: Allow players to gain expeience for and master necro armor.
+		}
+
+		NecroEXP: {
+			Label: Necro EXP Required
+			Tooltip:
+				'''
+				Amount of experience required to master the Necro armor set.
+				Default 3600.
+				'''
+		}
 	}
 }

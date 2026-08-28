@@ -357,7 +357,22 @@ namespace PermanentSetBonuses.Config
 		[Label("Snow EXP Required")]
 		[Tooltip("Amount of experience required to master the Snow armor set.\nDefault 600.")]
 		[Range(0, 65535)]
+		[DefaultValue(600)]
 		[ReloadRequired]
 		public int SnowEXP;
+		
+		[Label("Enable Necro")]
+		[Tooltip("Allow players to gain expeience for and master necro armor.")]
+		[DefaultValue(true)]
+		[ReloadRequired]
+		public bool EnableNecro;
+
+		[Label("Necro EXP Required")]
+		[Tooltip("Amount of experience required to master the Necro armor set.\nDefault 3600.")]
+		[Range(0, 65535)]
+		[DefaultValue(3600)]
+		[ReloadRequired]
+		public int NecroEXP;
+
 	}//end class ArmorSetConfig
 }//end namespace PermanentSetBonuses.Config

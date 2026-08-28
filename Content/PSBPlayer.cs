@@ -38,7 +38,8 @@ namespace PermanentSetBonuses.Content
 		Gladiator,
 		Jungle,
 		Bee,
-		Snow
+		Snow,
+		Necro
 	}
 
 	public struct ArmorSetParameters
@@ -120,7 +121,8 @@ namespace PermanentSetBonuses.Content
 				{ArmorSet.Gladiator, new ArmorSetParameters {validHelmets = new int[] {ItemID.GladiatorHelmet}, validChests = new int[] {ItemID.GladiatorBreastplate}, validGreaves = new int[] {ItemID.GladiatorLeggings}, maxXP = armorSettings.GladiatorEXP, textR = 200, textG = 70, textB = 80, bonusWeapons = new int[] {ItemID.Javelin, ItemID.Gladius}, enabled = armorSettings.EnableGladiator}},
 				{ArmorSet.Jungle, new ArmorSetParameters {validHelmets = new int[] {ItemID.JungleHat, ItemID.AncientCobaltHelmet}, validChests = new int[] {ItemID.JungleShirt, ItemID.AncientCobaltBreastplate}, validGreaves = new int[] {ItemID.JunglePants, ItemID.AncientCobaltLeggings}, maxXP = armorSettings.JungleEXP, textR = 45, textG = 200, textB = 56, bonusWeapons = new int[] {ItemID.JungleYoyo, ItemID.AcornAxe, ItemID.BladeofGrass, ItemID.ThornWhip, ItemID.ThornChakram, ItemID.PoisonDart}, enabled = armorSettings.EnableJungle}},
 				{ArmorSet.Bee, new ArmorSetParameters {validHelmets = new int[] {ItemID.BeeHeadgear}, validChests = new int[] {ItemID.BeeBreastplate}, validGreaves = new int[] {ItemID.BeeGreaves}, maxXP = armorSettings.BeeEXP, textR = 170, textG = 170, textB = 90, bonusWeapons = new int[] {ItemID.HiveFive, ItemID.HornetStaff, ItemID.BeeGun, ItemID.BeeKeeper, ItemID.BeesKnees}, enabled = armorSettings.EnableBee}},
-				{ArmorSet.Snow, new ArmorSetParameters {validHelmets = new int[] {ItemID.EskimoHood, ItemID.PinkEskimoHood}, validChests = new int[] {ItemID.EskimoCoat, ItemID.PinkEskimoCoat}, validGreaves = new int[] {ItemID.EskimoPants, ItemID.PinkEskimoPants}, maxXP = armorSettings.SnowEXP, textR = 180, textG = 200, textB = 255, bonusWeapons = new int[] {ItemID.ZombieArm, ItemID.IceBoomerang, ItemID.IceBlade, ItemID.SnowballCannon}, enabled = armorSettings.EnableSnow}}
+				{ArmorSet.Snow, new ArmorSetParameters {validHelmets = new int[] {ItemID.EskimoHood, ItemID.PinkEskimoHood}, validChests = new int[] {ItemID.EskimoCoat, ItemID.PinkEskimoCoat}, validGreaves = new int[] {ItemID.EskimoPants, ItemID.PinkEskimoPants}, maxXP = armorSettings.SnowEXP, textR = 180, textG = 200, textB = 255, bonusWeapons = new int[] {ItemID.ZombieArm, ItemID.IceBoomerang, ItemID.IceBlade, ItemID.SnowballCannon}, enabled = armorSettings.EnableSnow}},
+				{ArmorSet.Necro, new ArmorSetParameters {validHelmets = new int[] {ItemID.NecroHelmet, ItemID.AncientNecroHelmet}, validChests = new int[] {ItemID.NecroBreastplate}, validGreaves = new int[] {ItemID.NecroGreaves}, maxXP = armorSettings.NecroEXP, textR = 180, textG = 180, textB = 180, bonusWeapons = new int[] {ItemID.BoneWhip, ItemID.Muramasa, ItemID.AquaScepter, ItemID.BlueMoon, ItemID.MagicMissile, ItemID.Valor, ItemID.Handgun, ItemID.WaterBolt}, enabled = armorSettings.EnableNecro}}
 			};
 		}
 
@@ -544,6 +546,9 @@ namespace PermanentSetBonuses.Content
 					Player.buffImmune[BuffID.Chilled] = true;
 					Player.buffImmune[BuffID.Frozen] = true;
 					break;
+				case ArmorSet.Necro:
+					Player.GetCritChance<RangedDamageClass>() += 10;
+					break;
 			}
 		}//end ApplyBuff
 
@@ -645,6 +650,10 @@ namespace PermanentSetBonuses.Content
 			if (activeSets[(int)ArmorSet.Snow])
 			{
 				ApplyBuff(ArmorSet.Snow);
+			}
+			if (activeSets[(int)ArmorSet.Necro])
+			{
+				ApplyBuff(ArmorSet.Necro);
 			}
 		}//end PostUpdateMiscEffects
 
