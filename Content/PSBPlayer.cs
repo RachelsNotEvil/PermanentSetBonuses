@@ -405,6 +405,7 @@ namespace PermanentSetBonuses.Content
 				case NPCID.LittleCrimera:
 				case NPCID.DoctorBones:
 				case NPCID.TheGroom:
+				case NPCID.TheBride:
 					return 12;
 				case NPCID.SpikedJungleSlime:
 				case NPCID.JungleCreeper:
@@ -457,22 +458,43 @@ namespace PermanentSetBonuses.Content
 					return 15;
 				case NPCID.ZombieMerman:
 				case NPCID.Harpy:
+				case NPCID.Hellbat:
 					return 16;
+				case NPCID.BoneSerpentHead:
+				case NPCID.LavaSlime:
+				case NPCID.Demon:
+				case NPCID.VoodooDemon:
+				case NPCID.FireImp:
+					return 17;
 				case NPCID.BlueSlime:
-				case NPCID.Creeper:
+				case NPCID.TheHungry:
+				case NPCID.TheHungryII:
+				case NPCID.LeechHead:
 					return 8;
 				case NPCID.GreenSlime:
 				case NPCID.ServantofCthulhu:
 				case NPCID.Bee:
-				case NPCID.EaterofWorldsHead:
+				case NPCID.Creeper:
 					return 5;
 				case NPCID.BeeSmall:
 					return 4;
 				case NPCID.KingSlime:
-				case NPCID.BrainofCthulhu:
+				case NPCID.DD2DarkMageT1:
 					return 20;
 				case NPCID.EyeofCthulhu:
+				case NPCID.SkeletronHand:
 					return 25;
+				case NPCID.EaterofWorldsHead:
+				case NPCID.EaterofWorldsBody:
+				case NPCID.EaterofWorldsTail:
+					return 2;
+				case NPCID.BrainofCthulhu:
+					return 40;
+				case NPCID.SkeletronHead:
+					return 100;
+				case NPCID.WallofFlesh:
+				case NPCID.WallofFleshEye:
+					return 150;
 				default:
 					return 10;
 			}
