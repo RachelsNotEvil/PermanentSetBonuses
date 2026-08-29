@@ -401,5 +401,19 @@ Configs: {
 				Default 3600.
 				'''
 		}
+
+		EnableObsidian: {
+			Label: Enable Obsidian
+			Tooltip: Allow players to gain experience for and master obsidian armor.
+		}
+
+		ObsidianEXP: {
+			Label: Obsidian EXP Required
+			Tooltip:
+				'''
+				Amount of experience required to master the Obsidian armor set.
+				Default 4200.
+				'''
+		}
 	}
 }

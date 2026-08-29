@@ -39,7 +39,8 @@ namespace PermanentSetBonuses.Content
 		Jungle,
 		Bee,
 		Snow,
-		Necro
+		Necro,
+		Obsidian
 	}
 
 	public struct ArmorSetParameters
@@ -122,7 +123,8 @@ namespace PermanentSetBonuses.Content
 				{ArmorSet.Jungle, new ArmorSetParameters {validHelmets = new int[] {ItemID.JungleHat, ItemID.AncientCobaltHelmet}, validChests = new int[] {ItemID.JungleShirt, ItemID.AncientCobaltBreastplate}, validGreaves = new int[] {ItemID.JunglePants, ItemID.AncientCobaltLeggings}, maxXP = armorSettings.JungleEXP, textR = 45, textG = 200, textB = 56, bonusWeapons = new int[] {ItemID.JungleYoyo, ItemID.AcornAxe, ItemID.BladeofGrass, ItemID.ThornWhip, ItemID.ThornChakram, ItemID.PoisonDart}, enabled = armorSettings.EnableJungle}},
 				{ArmorSet.Bee, new ArmorSetParameters {validHelmets = new int[] {ItemID.BeeHeadgear}, validChests = new int[] {ItemID.BeeBreastplate}, validGreaves = new int[] {ItemID.BeeGreaves}, maxXP = armorSettings.BeeEXP, textR = 170, textG = 170, textB = 90, bonusWeapons = new int[] {ItemID.HiveFive, ItemID.HornetStaff, ItemID.BeeGun, ItemID.BeeKeeper, ItemID.BeesKnees}, enabled = armorSettings.EnableBee}},
 				{ArmorSet.Snow, new ArmorSetParameters {validHelmets = new int[] {ItemID.EskimoHood, ItemID.PinkEskimoHood}, validChests = new int[] {ItemID.EskimoCoat, ItemID.PinkEskimoCoat}, validGreaves = new int[] {ItemID.EskimoPants, ItemID.PinkEskimoPants}, maxXP = armorSettings.SnowEXP, textR = 180, textG = 200, textB = 255, bonusWeapons = new int[] {ItemID.ZombieArm, ItemID.IceBoomerang, ItemID.IceBlade, ItemID.SnowballCannon}, enabled = armorSettings.EnableSnow}},
-				{ArmorSet.Necro, new ArmorSetParameters {validHelmets = new int[] {ItemID.NecroHelmet, ItemID.AncientNecroHelmet}, validChests = new int[] {ItemID.NecroBreastplate}, validGreaves = new int[] {ItemID.NecroGreaves}, maxXP = armorSettings.NecroEXP, textR = 180, textG = 180, textB = 180, bonusWeapons = new int[] {ItemID.BoneWhip, ItemID.Muramasa, ItemID.AquaScepter, ItemID.BlueMoon, ItemID.MagicMissile, ItemID.Valor, ItemID.Handgun, ItemID.WaterBolt}, enabled = armorSettings.EnableNecro}}
+				{ArmorSet.Necro, new ArmorSetParameters {validHelmets = new int[] {ItemID.NecroHelmet, ItemID.AncientNecroHelmet}, validChests = new int[] {ItemID.NecroBreastplate}, validGreaves = new int[] {ItemID.NecroGreaves}, maxXP = armorSettings.NecroEXP, textR = 180, textG = 180, textB = 180, bonusWeapons = new int[] {ItemID.BoneWhip, ItemID.Muramasa, ItemID.AquaScepter, ItemID.BlueMoon, ItemID.MagicMissile, ItemID.Valor, ItemID.Handgun, ItemID.WaterBolt}, enabled = armorSettings.EnableNecro}},
+				{ArmorSet.Obsidian, new ArmorSetParameters {validHelmets = new int[] {ItemID.ObsidianHelm}, validChests = new int[] {ItemID.ObsidianShirt}, validGreaves = new int[] {ItemID.ObsidianPants}, maxXP = armorSettings.ObsidianEXP, textR = 170, textG = 175, textB = 190, bonusWeapons = new int[] {ItemID.NightmarePickaxe, ItemID.TheBreaker, ItemID.DeathbringerPickaxe, ItemID.FleshGrinder, ItemID.TheMeatball}, enabled = armorSettings.EnableObsidian}}
 			};
 		}
 
@@ -549,6 +551,12 @@ namespace PermanentSetBonuses.Content
 				case ArmorSet.Necro:
 					Player.GetCritChance<RangedDamageClass>() += 10;
 					break;
+				case ArmorSet.Obsidian:
+					Player.GetDamage<SummonDamageClass>() += 0.15f;
+					Player.whipRangeMultiplier += 0.3f;
+					//vanilla takes 3 lines of code and 2 variables to do mathematically the same as the next line
+					Player.GetAttackSpeed<SummonDamageClass>() *= 1.15f;
+					break;
 			}
 		}//end ApplyBuff
 
@@ -654,6 +662,10 @@ namespace PermanentSetBonuses.Content
 			if (activeSets[(int)ArmorSet.Necro])
 			{
 				ApplyBuff(ArmorSet.Necro);
+			}
+			if (activeSets[(int)ArmorSet.Obsidian])
+			{
+				ApplyBuff(ArmorSet.Obsidian);
 			}
 		}//end PostUpdateMiscEffects
 

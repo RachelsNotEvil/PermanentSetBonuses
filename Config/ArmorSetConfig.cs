@@ -374,5 +374,17 @@ namespace PermanentSetBonuses.Config
 		[ReloadRequired]
 		public int NecroEXP;
 
+		[Label("Enable Obsidian")]
+		[Tooltip("Allow players to gain experience for and master obsidian armor.")]
+		[DefaultValue(true)]
+		[ReloadRequired]
+		public bool EnableObsidian;
+
+		[Label("Obsidian EXP Required")]
+		[Tooltip("Amount of experience required to master the Obsidian armor set.\nDefault 4200.")]
+		[Range(0, 65535)]
+		[DefaultValue(4200)]
+		[ReloadRequired]
+		public int ObsidianEXP;
 	}//end class ArmorSetConfig
 }//end namespace PermanentSetBonuses.Config
